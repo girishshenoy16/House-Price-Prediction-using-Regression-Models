@@ -1,0 +1,68 @@
+{
+  "best_predictive_model": "Ridge Regression",
+  "best_predictive_cv_rmse": 30355.55642666265,
+  "selected_deployment_model": "Ridge Regression",
+  "selected_cv_rmse": 30355.55642666265,
+  "percentage_difference": 0.0,
+  "selection_reason": "Best predictive model is browser-compatible",
+  "cv_results": {
+    "Linear Regression": {
+      "cv_rmse": 31108.87184420774,
+      "cv_rmse_std": 10858.664693923705,
+      "cv_mae": 16619.43250375128,
+      "cv_r2": 0.8319870434522552
+    },
+    "Ridge Regression": {
+      "cv_rmse": 30355.55642666265,
+      "cv_rmse_std": 11780.672239243213,
+      "cv_mae": 15933.878938559239,
+      "cv_r2": 0.8351529518698708
+    },
+    "Lasso Regression": {
+      "cv_rmse": 31877.242236249767,
+      "cv_rmse_std": 14245.64615312166,
+      "cv_mae": 15847.964010868624,
+      "cv_r2": 0.8098340997132951
+    },
+    "Random Forest": {
+      "cv_rmse": 31755.548546464415,
+      "cv_rmse_std": 3544.643838207648,
+      "cv_mae": 18630.098195832987,
+      "cv_r2": 0.8447763084487727
+    },
+    "XGBoost": {
+      "cv_rmse": 30438.836745851917,
+      "cv_rmse_std": 4613.9160018053235,
+      "cv_mae": 16887.128348290025,
+      "cv_r2": 0.8559018087115486
+    }
+  },
+  "holdout_results": {
+    "Linear Regression": {
+      "holdout_rmse": 153855.01754904195,
+      "holdout_mae": 23007.138841575998,
+      "holdout_r2": -4.287648395116176
+    },
+    "Ridge Regression": {
+      "holdout_rmse": 126839.55126195727,
+      "holdout_mae": 20507.343268309363,
+      "holdout_r2": -2.5937563910537818
+    },
+    "Lasso Regression": {
+      "holdout_rmse": 117936.1543983455,
+      "holdout_mae": 18667.76211616925,
+      "holdout_r2": -2.1069421391631753
+    },
+    "Random Forest": {
+      "holdout_rmse": 26380.059801206608,
+      "holdout_mae": 16607.24898140373,
+      "holdout_r2": 0.8445499765038673
+    },
+    "XGBoost": {
+      "holdout_rmse": 22386.85595842453,
+      "holdout_mae": 14916.884310787671,
+      "holdout_r2": 0.888049651349802
+    }
+  },
+  "holdout_predictions_df": "      Actual      Predicted      Residual              Model\n0     105000  114926.909858  -9926.909858  Linear Regression\n1     119500  103070.530823  16429.469177  Linear Regression\n2     219210  222001.115236  -2791.115236  Linear Regression\n3      88000   88051.631682    -51.631682  Linear Regression\n4     208900  206135.598769   2764.401231  Linear Regression\n...      ...            ...           ...                ...\n1455  146800  152227.640625  -5427.640625            XGBoost\n1456  217500  206203.718750  11296.281250            XGBoost\n1457  260000  248688.093750  11311.906250            XGBoost\n1458  126500  125966.257812    533.742188            XGBoost\n1459  107500  109344.539062  -1844.539062            XGBoost\n\n[1460 rows x 4 columns]"
+}

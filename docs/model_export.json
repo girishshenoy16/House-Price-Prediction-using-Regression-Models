@@ -1,0 +1,3693 @@
+{
+  "model_name": "Ridge Regression",
+  "target_log_transformed": true,
+  "engineered_features": [
+    "TotalSF",
+    "TotalBaths",
+    "AgeAtSale",
+    "RemodAgeAtSale",
+    "QualAreaIndex",
+    "TotalPorchSF"
+  ],
+  "feature_names": [
+    "MSSubClass",
+    "LotFrontage",
+    "LotArea",
+    "OverallQual",
+    "OverallCond",
+    "YearBuilt",
+    "YearRemodAdd",
+    "MasVnrArea",
+    "BsmtFinSF1",
+    "BsmtFinSF2",
+    "BsmtUnfSF",
+    "TotalBsmtSF",
+    "1stFlrSF",
+    "2ndFlrSF",
+    "LowQualFinSF",
+    "GrLivArea",
+    "BsmtFullBath",
+    "BsmtHalfBath",
+    "FullBath",
+    "HalfBath",
+    "BedroomAbvGr",
+    "KitchenAbvGr",
+    "TotRmsAbvGrd",
+    "Fireplaces",
+    "GarageYrBlt",
+    "GarageCars",
+    "GarageArea",
+    "WoodDeckSF",
+    "OpenPorchSF",
+    "EnclosedPorch",
+    "3SsnPorch",
+    "ScreenPorch",
+    "PoolArea",
+    "MiscVal",
+    "MoSold",
+    "YrSold",
+    "MSZoning_C (all)",
+    "MSZoning_FV",
+    "MSZoning_RH",
+    "MSZoning_RL",
+    "MSZoning_RM",
+    "Street_Grvl",
+    "Street_Pave",
+    "Alley_Grvl",
+    "Alley_Pave",
+    "LotShape_IR1",
+    "LotShape_IR2",
+    "LotShape_IR3",
+    "LotShape_Reg",
+    "LandContour_Bnk",
+    "LandContour_HLS",
+    "LandContour_Low",
+    "LandContour_Lvl",
+    "Utilities_AllPub",
+    "Utilities_NoSeWa",
+    "LotConfig_Corner",
+    "LotConfig_CulDSac",
+    "LotConfig_FR2",
+    "LotConfig_FR3",
+    "LotConfig_Inside",
+    "LandSlope_Gtl",
+    "LandSlope_Mod",
+    "LandSlope_Sev",
+    "Neighborhood_Blmngtn",
+    "Neighborhood_Blueste",
+    "Neighborhood_BrDale",
+    "Neighborhood_BrkSide",
+    "Neighborhood_ClearCr",
+    "Neighborhood_CollgCr",
+    "Neighborhood_Crawfor",
+    "Neighborhood_Edwards",
+    "Neighborhood_Gilbert",
+    "Neighborhood_IDOTRR",
+    "Neighborhood_MeadowV",
+    "Neighborhood_Mitchel",
+    "Neighborhood_NAmes",
+    "Neighborhood_NPkVill",
+    "Neighborhood_NWAmes",
+    "Neighborhood_NoRidge",
+    "Neighborhood_NridgHt",
+    "Neighborhood_OldTown",
+    "Neighborhood_SWISU",
+    "Neighborhood_Sawyer",
+    "Neighborhood_SawyerW",
+    "Neighborhood_Somerst",
+    "Neighborhood_StoneBr",
+    "Neighborhood_Timber",
+    "Neighborhood_Veenker",
+    "Condition1_Artery",
+    "Condition1_Feedr",
+    "Condition1_Norm",
+    "Condition1_PosA",
+    "Condition1_PosN",
+    "Condition1_RRAe",
+    "Condition1_RRAn",
+    "Condition1_RRNe",
+    "Condition1_RRNn",
+    "Condition2_Artery",
+    "Condition2_Feedr",
+    "Condition2_Norm",
+    "Condition2_PosA",
+    "Condition2_PosN",
+    "Condition2_RRAe",
+    "Condition2_RRAn",
+    "Condition2_RRNn",
+    "BldgType_1Fam",
+    "BldgType_2fmCon",
+    "BldgType_Duplex",
+    "BldgType_Twnhs",
+    "BldgType_TwnhsE",
+    "HouseStyle_1.5Fin",
+    "HouseStyle_1.5Unf",
+    "HouseStyle_1Story",
+    "HouseStyle_2.5Fin",
+    "HouseStyle_2.5Unf",
+    "HouseStyle_2Story",
+    "HouseStyle_SFoyer",
+    "HouseStyle_SLvl",
+    "RoofStyle_Flat",
+    "RoofStyle_Gable",
+    "RoofStyle_Gambrel",
+    "RoofStyle_Hip",
+    "RoofStyle_Mansard",
+    "RoofStyle_Shed",
+    "RoofMatl_CompShg",
+    "RoofMatl_Membran",
+    "RoofMatl_Tar&Grv",
+    "RoofMatl_WdShake",
+    "RoofMatl_WdShngl",
+    "Exterior1st_AsbShng",
+    "Exterior1st_AsphShn",
+    "Exterior1st_BrkComm",
+    "Exterior1st_BrkFace",
+    "Exterior1st_CBlock",
+    "Exterior1st_CemntBd",
+    "Exterior1st_HdBoard",
+    "Exterior1st_ImStucc",
+    "Exterior1st_MetalSd",
+    "Exterior1st_Plywood",
+    "Exterior1st_Stone",
+    "Exterior1st_Stucco",
+    "Exterior1st_VinylSd",
+    "Exterior1st_Wd Sdng",
+    "Exterior1st_WdShing",
+    "Exterior2nd_AsbShng",
+    "Exterior2nd_AsphShn",
+    "Exterior2nd_Brk Cmn",
+    "Exterior2nd_BrkFace",
+    "Exterior2nd_CBlock",
+    "Exterior2nd_CmentBd",
+    "Exterior2nd_HdBoard",
+    "Exterior2nd_ImStucc",
+    "Exterior2nd_MetalSd",
+    "Exterior2nd_Other",
+    "Exterior2nd_Plywood",
+    "Exterior2nd_Stone",
+    "Exterior2nd_Stucco",
+    "Exterior2nd_VinylSd",
+    "Exterior2nd_Wd Sdng",
+    "Exterior2nd_Wd Shng",
+    "MasVnrType_BrkCmn",
+    "MasVnrType_BrkFace",
+    "MasVnrType_Stone",
+    "ExterQual_Ex",
+    "ExterQual_Fa",
+    "ExterQual_Gd",
+    "ExterQual_TA",
+    "ExterCond_Ex",
+    "ExterCond_Fa",
+    "ExterCond_Gd",
+    "ExterCond_TA",
+    "Foundation_BrkTil",
+    "Foundation_CBlock",
+    "Foundation_PConc",
+    "Foundation_Slab",
+    "Foundation_Stone",
+    "Foundation_Wood",
+    "BsmtQual_Ex",
+    "BsmtQual_Fa",
+    "BsmtQual_Gd",
+    "BsmtQual_TA",
+    "BsmtCond_Fa",
+    "BsmtCond_Gd",
+    "BsmtCond_Po",
+    "BsmtCond_TA",
+    "BsmtExposure_Av",
+    "BsmtExposure_Gd",
+    "BsmtExposure_Mn",
+    "BsmtExposure_No",
+    "BsmtFinType1_ALQ",
+    "BsmtFinType1_BLQ",
+    "BsmtFinType1_GLQ",
+    "BsmtFinType1_LwQ",
+    "BsmtFinType1_Rec",
+    "BsmtFinType1_Unf",
+    "BsmtFinType2_ALQ",
+    "BsmtFinType2_BLQ",
+    "BsmtFinType2_GLQ",
+    "BsmtFinType2_LwQ",
+    "BsmtFinType2_Rec",
+    "BsmtFinType2_Unf",
+    "Heating_Floor",
+    "Heating_GasA",
+    "Heating_GasW",
+    "Heating_Grav",
+    "Heating_OthW",
+    "Heating_Wall",
+    "HeatingQC_Ex",
+    "HeatingQC_Fa",
+    "HeatingQC_Gd",
+    "HeatingQC_Po",
+    "HeatingQC_TA",
+    "CentralAir_N",
+    "CentralAir_Y",
+    "Electrical_FuseA",
+    "Electrical_FuseF",
+    "Electrical_FuseP",
+    "Electrical_Mix",
+    "Electrical_SBrkr",
+    "KitchenQual_Ex",
+    "KitchenQual_Fa",
+    "KitchenQual_Gd",
+    "KitchenQual_TA",
+    "Functional_Maj1",
+    "Functional_Maj2",
+    "Functional_Min1",
+    "Functional_Min2",
+    "Functional_Mod",
+    "Functional_Sev",
+    "Functional_Typ",
+    "FireplaceQu_Ex",
+    "FireplaceQu_Fa",
+    "FireplaceQu_Gd",
+    "FireplaceQu_Po",
+    "FireplaceQu_TA",
+    "GarageType_2Types",
+    "GarageType_Attchd",
+    "GarageType_Basment",
+    "GarageType_BuiltIn",
+    "GarageType_CarPort",
+    "GarageType_Detchd",
+    "GarageFinish_Fin",
+    "GarageFinish_RFn",
+    "GarageFinish_Unf",
+    "GarageQual_Ex",
+    "GarageQual_Fa",
+    "GarageQual_Gd",
+    "GarageQual_Po",
+    "GarageQual_TA",
+    "GarageCond_Ex",
+    "GarageCond_Fa",
+    "GarageCond_Gd",
+    "GarageCond_Po",
+    "GarageCond_TA",
+    "PavedDrive_N",
+    "PavedDrive_P",
+    "PavedDrive_Y",
+    "PoolQC_Ex",
+    "PoolQC_Fa",
+    "PoolQC_Gd",
+    "Fence_GdPrv",
+    "Fence_GdWo",
+    "Fence_MnPrv",
+    "Fence_MnWw",
+    "MiscFeature_Gar2",
+    "MiscFeature_Othr",
+    "MiscFeature_Shed",
+    "MiscFeature_TenC",
+    "SaleType_COD",
+    "SaleType_CWD",
+    "SaleType_Con",
+    "SaleType_ConLD",
+    "SaleType_ConLI",
+    "SaleType_ConLw",
+    "SaleType_New",
+    "SaleType_Oth",
+    "SaleType_WD",
+    "SaleCondition_Abnorml",
+    "SaleCondition_AdjLand",
+    "SaleCondition_Alloca",
+    "SaleCondition_Family",
+    "SaleCondition_Normal",
+    "SaleCondition_Partial"
+  ],
+  "numeric_columns": [
+    "MSSubClass",
+    "LotFrontage",
+    "LotArea",
+    "OverallQual",
+    "OverallCond",
+    "YearBuilt",
+    "YearRemodAdd",
+    "MasVnrArea",
+    "BsmtFinSF1",
+    "BsmtFinSF2",
+    "BsmtUnfSF",
+    "TotalBsmtSF",
+    "1stFlrSF",
+    "2ndFlrSF",
+    "LowQualFinSF",
+    "GrLivArea",
+    "BsmtFullBath",
+    "BsmtHalfBath",
+    "FullBath",
+    "HalfBath",
+    "BedroomAbvGr",
+    "KitchenAbvGr",
+    "TotRmsAbvGrd",
+    "Fireplaces",
+    "GarageYrBlt",
+    "GarageCars",
+    "GarageArea",
+    "WoodDeckSF",
+    "OpenPorchSF",
+    "EnclosedPorch",
+    "3SsnPorch",
+    "ScreenPorch",
+    "PoolArea",
+    "MiscVal",
+    "MoSold",
+    "YrSold"
+  ],
+  "categorical_columns": [
+    "MSZoning",
+    "Street",
+    "Alley",
+    "LotShape",
+    "LandContour",
+    "Utilities",
+    "LotConfig",
+    "LandSlope",
+    "Neighborhood",
+    "Condition1",
+    "Condition2",
+    "BldgType",
+    "HouseStyle",
+    "RoofStyle",
+    "RoofMatl",
+    "Exterior1st",
+    "Exterior2nd",
+    "MasVnrType",
+    "ExterQual",
+    "ExterCond",
+    "Foundation",
+    "BsmtQual",
+    "BsmtCond",
+    "BsmtExposure",
+    "BsmtFinType1",
+    "BsmtFinType2",
+    "Heating",
+    "HeatingQC",
+    "CentralAir",
+    "Electrical",
+    "KitchenQual",
+    "Functional",
+    "FireplaceQu",
+    "GarageType",
+    "GarageFinish",
+    "GarageQual",
+    "GarageCond",
+    "PavedDrive",
+    "PoolQC",
+    "Fence",
+    "MiscFeature",
+    "SaleType",
+    "SaleCondition"
+  ],
+  "numeric_imputer_strategy": "median",
+  "numeric_imputer_values": [
+    50.0,
+    70.0,
+    9485.0,
+    6.0,
+    5.0,
+    1972.0,
+    1994.0,
+    0.0,
+    378.5,
+    0.0,
+    482.5,
+    992.0,
+    1088.0,
+    0.0,
+    0.0,
+    1465.0,
+    0.0,
+    0.0,
+    2.0,
+    0.0,
+    3.0,
+    1.0,
+    6.0,
+    1.0,
+    1980.0,
+    2.0,
+    480.0,
+    0.0,
+    24.5,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    6.0,
+    2008.0
+  ],
+  "scaler_mean": [
+    56.31421232876713,
+    70.37157534246575,
+    10485.79109589041,
+    6.093321917808219,
+    5.583904109589041,
+    1971.0051369863013,
+    1984.9674657534247,
+    102.10102739726027,
+    437.2260273972603,
+    49.24400684931507,
+    574.2919520547945,
+    1060.76198630137,
+    1167.609589041096,
+    342.7474315068493,
+    6.36986301369863,
+    1516.726883561644,
+    0.4246575342465753,
+    0.05565068493150685,
+    1.5607876712328768,
+    0.3767123287671233,
+    2.8613013698630136,
+    1.0462328767123288,
+    6.529109589041096,
+    0.603595890410959,
+    1978.474315068493,
+    1.773972602739726,
+    472.83732876712327,
+    91.19263698630137,
+    47.3013698630137,
+    22.886130136986303,
+    3.8835616438356166,
+    15.446061643835616,
+    3.037671232876712,
+    48.59931506849315,
+    6.237157534246576,
+    2007.8433219178082
+  ],
+  "scaler_scale": [
+    41.67056963076191,
+    21.29330270258819,
+    9277.777207860072,
+    1.400473229387816,
+    1.1369334345689044,
+    30.209513396259286,
+    20.874723435511694,
+    183.38912255888314,
+    435.78730155809603,
+    167.25974759677516,
+    453.41507738603485,
+    429.8618584174246,
+    386.1180372310695,
+    438.6034621350218,
+    50.69250082317169,
+    528.0243611057256,
+    0.5129903793372252,
+    0.23295067066931635,
+    0.559540598119468,
+    0.5019197523441441,
+    0.8335489103157261,
+    0.2140273968218898,
+    1.635178940077334,
+    0.6446997398042434,
+    24.27417643616682,
+    0.7484737707834256,
+    213.59359833665138,
+    123.82776944967522,
+    66.90990106955154,
+    61.733920423982234,
+    31.885875318845176,
+    56.74358483054148,
+    42.6545973696696,
+    551.6321707264296,
+    2.6851486787956,
+    1.3371432154263454
+  ],
+  "categorical_imputer_strategy": "most_frequent",
+  "categorical_imputer_values": {
+    "MSZoning": "RL",
+    "Street": "Pave",
+    "Alley": "Grvl",
+    "LotShape": "Reg",
+    "LandContour": "Lvl",
+    "Utilities": "AllPub",
+    "LotConfig": "Inside",
+    "LandSlope": "Gtl",
+    "Neighborhood": "NAmes",
+    "Condition1": "Norm",
+    "Condition2": "Norm",
+    "BldgType": "1Fam",
+    "HouseStyle": "1Story",
+    "RoofStyle": "Gable",
+    "RoofMatl": "CompShg",
+    "Exterior1st": "VinylSd",
+    "Exterior2nd": "VinylSd",
+    "MasVnrType": "BrkFace",
+    "ExterQual": "TA",
+    "ExterCond": "TA",
+    "Foundation": "PConc",
+    "BsmtQual": "TA",
+    "BsmtCond": "TA",
+    "BsmtExposure": "No",
+    "BsmtFinType1": "GLQ",
+    "BsmtFinType2": "Unf",
+    "Heating": "GasA",
+    "HeatingQC": "Ex",
+    "CentralAir": "Y",
+    "Electrical": "SBrkr",
+    "KitchenQual": "TA",
+    "Functional": "Typ",
+    "FireplaceQu": "Gd",
+    "GarageType": "Attchd",
+    "GarageFinish": "Unf",
+    "GarageQual": "TA",
+    "GarageCond": "TA",
+    "PavedDrive": "Y",
+    "PoolQC": "Ex",
+    "Fence": "MnPrv",
+    "MiscFeature": "Shed",
+    "SaleType": "WD",
+    "SaleCondition": "Normal"
+  },
+  "categorical_maps": {
+    "MSZoning": [
+      "C (all)",
+      "FV",
+      "RH",
+      "RL",
+      "RM"
+    ],
+    "Street": [
+      "Grvl",
+      "Pave"
+    ],
+    "Alley": [
+      "Grvl",
+      "Pave"
+    ],
+    "LotShape": [
+      "IR1",
+      "IR2",
+      "IR3",
+      "Reg"
+    ],
+    "LandContour": [
+      "Bnk",
+      "HLS",
+      "Low",
+      "Lvl"
+    ],
+    "Utilities": [
+      "AllPub",
+      "NoSeWa"
+    ],
+    "LotConfig": [
+      "Corner",
+      "CulDSac",
+      "FR2",
+      "FR3",
+      "Inside"
+    ],
+    "LandSlope": [
+      "Gtl",
+      "Mod",
+      "Sev"
+    ],
+    "Neighborhood": [
+      "Blmngtn",
+      "Blueste",
+      "BrDale",
+      "BrkSide",
+      "ClearCr",
+      "CollgCr",
+      "Crawfor",
+      "Edwards",
+      "Gilbert",
+      "IDOTRR",
+      "MeadowV",
+      "Mitchel",
+      "NAmes",
+      "NPkVill",
+      "NWAmes",
+      "NoRidge",
+      "NridgHt",
+      "OldTown",
+      "SWISU",
+      "Sawyer",
+      "SawyerW",
+      "Somerst",
+      "StoneBr",
+      "Timber",
+      "Veenker"
+    ],
+    "Condition1": [
+      "Artery",
+      "Feedr",
+      "Norm",
+      "PosA",
+      "PosN",
+      "RRAe",
+      "RRAn",
+      "RRNe",
+      "RRNn"
+    ],
+    "Condition2": [
+      "Artery",
+      "Feedr",
+      "Norm",
+      "PosA",
+      "PosN",
+      "RRAe",
+      "RRAn",
+      "RRNn"
+    ],
+    "BldgType": [
+      "1Fam",
+      "2fmCon",
+      "Duplex",
+      "Twnhs",
+      "TwnhsE"
+    ],
+    "HouseStyle": [
+      "1.5Fin",
+      "1.5Unf",
+      "1Story",
+      "2.5Fin",
+      "2.5Unf",
+      "2Story",
+      "SFoyer",
+      "SLvl"
+    ],
+    "RoofStyle": [
+      "Flat",
+      "Gable",
+      "Gambrel",
+      "Hip",
+      "Mansard",
+      "Shed"
+    ],
+    "RoofMatl": [
+      "CompShg",
+      "Membran",
+      "Tar&Grv",
+      "WdShake",
+      "WdShngl"
+    ],
+    "Exterior1st": [
+      "AsbShng",
+      "AsphShn",
+      "BrkComm",
+      "BrkFace",
+      "CBlock",
+      "CemntBd",
+      "HdBoard",
+      "ImStucc",
+      "MetalSd",
+      "Plywood",
+      "Stone",
+      "Stucco",
+      "VinylSd",
+      "Wd Sdng",
+      "WdShing"
+    ],
+    "Exterior2nd": [
+      "AsbShng",
+      "AsphShn",
+      "Brk Cmn",
+      "BrkFace",
+      "CBlock",
+      "CmentBd",
+      "HdBoard",
+      "ImStucc",
+      "MetalSd",
+      "Other",
+      "Plywood",
+      "Stone",
+      "Stucco",
+      "VinylSd",
+      "Wd Sdng",
+      "Wd Shng"
+    ],
+    "MasVnrType": [
+      "BrkCmn",
+      "BrkFace",
+      "Stone"
+    ],
+    "ExterQual": [
+      "Ex",
+      "Fa",
+      "Gd",
+      "TA"
+    ],
+    "ExterCond": [
+      "Ex",
+      "Fa",
+      "Gd",
+      "TA"
+    ],
+    "Foundation": [
+      "BrkTil",
+      "CBlock",
+      "PConc",
+      "Slab",
+      "Stone",
+      "Wood"
+    ],
+    "BsmtQual": [
+      "Ex",
+      "Fa",
+      "Gd",
+      "TA"
+    ],
+    "BsmtCond": [
+      "Fa",
+      "Gd",
+      "Po",
+      "TA"
+    ],
+    "BsmtExposure": [
+      "Av",
+      "Gd",
+      "Mn",
+      "No"
+    ],
+    "BsmtFinType1": [
+      "ALQ",
+      "BLQ",
+      "GLQ",
+      "LwQ",
+      "Rec",
+      "Unf"
+    ],
+    "BsmtFinType2": [
+      "ALQ",
+      "BLQ",
+      "GLQ",
+      "LwQ",
+      "Rec",
+      "Unf"
+    ],
+    "Heating": [
+      "Floor",
+      "GasA",
+      "GasW",
+      "Grav",
+      "OthW",
+      "Wall"
+    ],
+    "HeatingQC": [
+      "Ex",
+      "Fa",
+      "Gd",
+      "Po",
+      "TA"
+    ],
+    "CentralAir": [
+      "N",
+      "Y"
+    ],
+    "Electrical": [
+      "FuseA",
+      "FuseF",
+      "FuseP",
+      "Mix",
+      "SBrkr"
+    ],
+    "KitchenQual": [
+      "Ex",
+      "Fa",
+      "Gd",
+      "TA"
+    ],
+    "Functional": [
+      "Maj1",
+      "Maj2",
+      "Min1",
+      "Min2",
+      "Mod",
+      "Sev",
+      "Typ"
+    ],
+    "FireplaceQu": [
+      "Ex",
+      "Fa",
+      "Gd",
+      "Po",
+      "TA"
+    ],
+    "GarageType": [
+      "2Types",
+      "Attchd",
+      "Basment",
+      "BuiltIn",
+      "CarPort",
+      "Detchd"
+    ],
+    "GarageFinish": [
+      "Fin",
+      "RFn",
+      "Unf"
+    ],
+    "GarageQual": [
+      "Ex",
+      "Fa",
+      "Gd",
+      "Po",
+      "TA"
+    ],
+    "GarageCond": [
+      "Ex",
+      "Fa",
+      "Gd",
+      "Po",
+      "TA"
+    ],
+    "PavedDrive": [
+      "N",
+      "P",
+      "Y"
+    ],
+    "PoolQC": [
+      "Ex",
+      "Fa",
+      "Gd"
+    ],
+    "Fence": [
+      "GdPrv",
+      "GdWo",
+      "MnPrv",
+      "MnWw"
+    ],
+    "MiscFeature": [
+      "Gar2",
+      "Othr",
+      "Shed",
+      "TenC"
+    ],
+    "SaleType": [
+      "COD",
+      "CWD",
+      "Con",
+      "ConLD",
+      "ConLI",
+      "ConLw",
+      "New",
+      "Oth",
+      "WD"
+    ],
+    "SaleCondition": [
+      "Abnorml",
+      "AdjLand",
+      "Alloca",
+      "Family",
+      "Normal",
+      "Partial"
+    ]
+  },
+  "coefficients": [
+    -0.029411025352467996,
+    0.006958122221990031,
+    0.02333035977579494,
+    0.05623835886840294,
+    0.041207179190333044,
+    0.05170559202946312,
+    0.017147237151434253,
+    0.0009177736457561573,
+    0.027263527137174143,
+    0.007190470922276404,
+    0.0021422834353205986,
+    0.032696827150571324,
+    0.03940237691911035,
+    0.0392519691949231,
+    0.0003711883862010635,
+    0.06145329056836088,
+    0.008354830407302482,
+    -0.0033260503255744026,
+    0.0047719188579934835,
+    0.008755989771805816,
+    0.0074384701788166386,
+    -0.003211863560088849,
+    0.01609809080032228,
+    0.014181858763810604,
+    -0.014714091682027756,
+    0.024885737668202557,
+    0.020805686447932938,
+    0.013753088630124269,
+    0.0027590248280606458,
+    0.004222689796476896,
+    0.006216080727249239,
+    0.014765221890323718,
+    0.006614393358143948,
+    0.0019492627286311994,
+    0.0002422682651774279,
+    -0.0036876521818115914,
+    -0.26327616215175137,
+    0.09043001738238889,
+    0.0729311966819291,
+    0.06890853856730665,
+    0.031006409520151386,
+    -0.028708236981421963,
+    0.0287082369814219,
+    -0.025484509897294665,
+    0.02548450989729465,
+    -0.011631266626062751,
+    0.017130396557085554,
+    0.0014592118153819106,
+    -0.0069583417464316785,
+    -0.030255501082226625,
+    0.0317721840112168,
+    -0.019724869616678343,
+    0.018208186687684955,
+    0.07115920527624146,
+    -0.07115920527624124,
+    0.018573685556714504,
+    0.05136940508239692,
+    -0.010903727533985472,
+    -0.06834105323089562,
+    0.00930169012575102,
+    0.019779073891544725,
+    0.06132801478476689,
+    -0.0811070886763097,
+    -0.010536860451843818,
+    -0.004963402581558013,
+    -0.031974474968629575,
+    0.00656707527814323,
+    0.03787014815601772,
+    -0.007869334233201767,
+    0.11657842013451676,
+    -0.0846906977448557,
+    -0.014138908012346763,
+    -0.036663311668293654,
+    -0.1627035883265342,
+    -0.05695494692753036,
+    -0.04146231147536745,
+    -0.014442386664247376,
+    -0.03457315031432142,
+    0.0489601653263823,
+    0.10251877836470671,
+    -0.03274298253636845,
+    0.0028925709362566288,
+    -0.036921491603604854,
+    0.005122658767014896,
+    0.03327531735561652,
+    0.15710543276219668,
+    0.022318922677449216,
+    0.03742835775033327,
+    -0.02924443059165414,
+    0.004598377971604203,
+    0.044374384979939174,
+    -0.009856512911759105,
+    0.015830273987316647,
+    -0.06770456756356726,
+    0.02202298074051876,
+    -0.018372099193746085,
+    0.038351592581351325,
+    -0.006827195566599531,
+    0.15331349011150097,
+    0.13523441770773797,
+    0.12264914536630456,
+    -0.41317779967120083,
+    -0.0332295174285422,
+    0.03412118437056313,
+    0.007916275110232856,
+    -0.019042111129049362,
+    0.07895784228266375,
+    -0.03689694554937018,
+    -0.03177269404369292,
+    0.008753908439433602,
+    0.003701430753376637,
+    -0.005813060899527915,
+    -0.039831934917033886,
+    -0.04655745806053752,
+    0.07320763399357527,
+    -0.017325828982692394,
+    0.015946426788799956,
+    0.016672791323981466,
+    0.018102805368471968,
+    -0.046033996372900794,
+    -0.020661723333579705,
+    -0.043269360944561026,
+    -0.008767748407990144,
+    0.10063002369062868,
+    -0.018805296217969076,
+    0.08804536962970101,
+    -0.10161841901913128,
+    -0.02342257860083091,
+    0.055800924208239656,
+    0.009368243035618859,
+    -0.020709369278913266,
+    0.04082328454309416,
+    0.05350066748217447,
+    -0.025746121935998532,
+    -0.024139124711498254,
+    -0.03356432024491395,
+    -0.0016332982850305368,
+    0.053918939844926274,
+    -0.01488277008490411,
+    -0.02456928345295713,
+    0.04703636923449408,
+    -0.017076960352296527,
+    -0.040728070397475925,
+    -0.0015981853963489318,
+    -0.03232973561742598,
+    0.01998338219350777,
+    0.044808485744008676,
+    -0.006161558740681909,
+    -0.02574612193599854,
+    0.024979036320365324,
+    0.014163799182970917,
+    0.020918914546902714,
+    -0.04659219263604151,
+    -0.05083812605455927,
+    0.016226398208925834,
+    -0.034239998114267214,
+    -0.005857786765728754,
+    0.02615936193792725,
+    0.03963016034125574,
+    -0.005104018611088576,
+    -0.034449062259549676,
+    0.008105324930330013,
+    0.02634373732919109,
+    0.012147353956778257,
+    -0.021983771430841632,
+    0.008488153546824317,
+    0.001348263927283482,
+    0.07201362439822992,
+    -0.039690638092748955,
+    -0.023562696309163775,
+    -0.008760289996311007,
+    0.010187746084816138,
+    0.018903041405708924,
+    0.0422753475437216,
+    -0.030746277876425112,
+    0.045420794609311366,
+    -0.08604065176718935,
+    0.026033208695568466,
+    -0.007684319355872777,
+    -0.011585932126075872,
+    -0.0067629572136903345,
+    -0.041172452661523924,
+    -0.014019415453148042,
+    0.07024838648956888,
+    -0.015056518374889732,
+    -0.007273675704021445,
+    0.022412359771646292,
+    0.0013911521850460968,
+    -0.016529836252666626,
+    0.014173023347414247,
+    -0.0017517719567182095,
+    0.018787345012570202,
+    -0.02398239588541716,
+    -0.008004256554183789,
+    0.0007780560363804886,
+    0.017771994823069386,
+    -0.02484166706704417,
+    0.040564127599267905,
+    -0.01271056893680588,
+    -0.017768700426754363,
+    -0.0030151859917162426,
+    -0.0732168576963446,
+    0.014813460964187281,
+    0.035943663569928556,
+    -0.06071990182975261,
+    0.0031630638230198756,
+    0.08001657116897024,
+    0.027207588136818943,
+    -0.005409386455755536,
+    0.0014934626813689325,
+    -0.028803295054577994,
+    0.005511630692176043,
+    -0.024524365037929437,
+    0.024524365037929364,
+    0.024845445075207515,
+    0.010814992737801137,
+    -0.01742857862147826,
+    -0.03368236302131191,
+    0.015450503829792973,
+    0.03725149045209579,
+    -0.01513913155138964,
+    -0.01145249975285823,
+    -0.010659859147876169,
+    0.028471204182279202,
+    -0.11226366346269963,
+    0.03721338324494217,
+    0.05885878169653174,
+    -0.016519056495157797,
+    -0.08229866464278528,
+    0.08653801547687191,
+    -0.0038899660754699384,
+    -0.0008470662094755411,
+    0.0028316244397731537,
+    -0.01404374927787742,
+    0.015949157123010416,
+    -0.08396078384954513,
+    0.02460980435871887,
+    0.008504412773383652,
+    -0.005325884593700776,
+    0.048710827294366404,
+    0.0074616240166950785,
+    0.006177397078876837,
+    0.0031970654223721796,
+    -0.009374462501141165,
+    0.10694768460515505,
+    -0.05033725730701565,
+    0.03225922175628443,
+    -0.08067487135551744,
+    -0.008194777698911046,
+    -0.019338523070762538,
+    -0.039954793142316036,
+    0.017935005851947315,
+    0.05261333347207385,
+    -0.011255023110945504,
+    -0.016942189684587643,
+    -0.0019773611455793324,
+    0.018919550830135183,
+    -0.018224054488681807,
+    -0.05736554218702365,
+    0.0755895966757052,
+    0.010214603756377505,
+    -0.01856697304580567,
+    0.010664372503069005,
+    -0.002312003213625084,
+    0.0008723404425110407,
+    0.012857257600936903,
+    0.06235151862128552,
+    -0.0760811166647337,
+    -0.06477343100129362,
+    0.05263952334779928,
+    0.0009032881856225624,
+    0.04936288633346212,
+    -0.017477380186933695,
+    0.02002014177996574,
+    0.02722559217550663,
+    0.0034783539107721253,
+    -0.0713789745449205,
+    -0.028534494976211393,
+    0.07724222380740346,
+    -0.05115985133847011,
+    -0.004385071573587942,
+    0.030639455596238794,
+    -0.023802261515273638
+  ],
+  "intercept": 11.613857381982873,
+  "cv_rmse": 30355.55642666265,
+  "holdout_rmse": 126839.55126195727,
+  "holdout_mae": 20507.343268309363,
+  "holdout_r2": -2.5937563910537818,
+  "best_predictive_model": "Ridge Regression",
+  "percentage_difference": 0.0,
+  "selection_reason": "Best predictive model is browser-compatible",
+  "feature_order": {
+    "engineered": [
+      "TotalSF",
+      "TotalBaths",
+      "AgeAtSale",
+      "RemodAgeAtSale",
+      "QualAreaIndex",
+      "TotalPorchSF"
+    ],
+    "numeric_raw": [
+      "MSSubClass",
+      "LotFrontage",
+      "LotArea",
+      "OverallQual",
+      "OverallCond",
+      "YearBuilt",
+      "YearRemodAdd",
+      "MasVnrArea",
+      "BsmtFinSF1",
+      "BsmtFinSF2",
+      "BsmtUnfSF",
+      "TotalBsmtSF",
+      "1stFlrSF",
+      "2ndFlrSF",
+      "LowQualFinSF",
+      "GrLivArea",
+      "BsmtFullBath",
+      "BsmtHalfBath",
+      "FullBath",
+      "HalfBath",
+      "BedroomAbvGr",
+      "KitchenAbvGr",
+      "TotRmsAbvGrd",
+      "Fireplaces",
+      "GarageYrBlt",
+      "GarageCars",
+      "GarageArea",
+      "WoodDeckSF",
+      "OpenPorchSF",
+      "EnclosedPorch",
+      "3SsnPorch",
+      "ScreenPorch",
+      "PoolArea",
+      "MiscVal",
+      "MoSold",
+      "YrSold"
+    ],
+    "categorical_raw": [
+      "MSZoning",
+      "Street",
+      "Alley",
+      "LotShape",
+      "LandContour",
+      "Utilities",
+      "LotConfig",
+      "LandSlope",
+      "Neighborhood",
+      "Condition1",
+      "Condition2",
+      "BldgType",
+      "HouseStyle",
+      "RoofStyle",
+      "RoofMatl",
+      "Exterior1st",
+      "Exterior2nd",
+      "MasVnrType",
+      "ExterQual",
+      "ExterCond",
+      "Foundation",
+      "BsmtQual",
+      "BsmtCond",
+      "BsmtExposure",
+      "BsmtFinType1",
+      "BsmtFinType2",
+      "Heating",
+      "HeatingQC",
+      "CentralAir",
+      "Electrical",
+      "KitchenQual",
+      "Functional",
+      "FireplaceQu",
+      "GarageType",
+      "GarageFinish",
+      "GarageQual",
+      "GarageCond",
+      "PavedDrive",
+      "PoolQC",
+      "Fence",
+      "MiscFeature",
+      "SaleType",
+      "SaleCondition"
+    ]
+  },
+  "cv_results": {
+    "Linear Regression": {
+      "cv_rmse": 31108.87184420774,
+      "cv_rmse_std": 10858.664693923705,
+      "cv_mae": 16619.43250375128,
+      "cv_r2": 0.8319870434522552
+    },
+    "Ridge Regression": {
+      "cv_rmse": 30355.55642666265,
+      "cv_rmse_std": 11780.672239243213,
+      "cv_mae": 15933.878938559239,
+      "cv_r2": 0.8351529518698708
+    },
+    "Lasso Regression": {
+      "cv_rmse": 31877.242236249767,
+      "cv_rmse_std": 14245.64615312166,
+      "cv_mae": 15847.964010868624,
+      "cv_r2": 0.8098340997132951
+    },
+    "Random Forest": {
+      "cv_rmse": 31755.548546464415,
+      "cv_rmse_std": 3544.643838207648,
+      "cv_mae": 18630.098195832987,
+      "cv_r2": 0.8447763084487727
+    },
+    "XGBoost": {
+      "cv_rmse": 30438.836745851917,
+      "cv_rmse_std": 4613.9160018053235,
+      "cv_mae": 16887.128348290025,
+      "cv_r2": 0.8559018087115486
+    }
+  },
+  "holdout_results": {
+    "Linear Regression": {
+      "holdout_rmse": 153855.01754904195,
+      "holdout_mae": 23007.138841575998,
+      "holdout_r2": -4.287648395116176
+    },
+    "Ridge Regression": {
+      "holdout_rmse": 126839.55126195727,
+      "holdout_mae": 20507.343268309363,
+      "holdout_r2": -2.5937563910537818
+    },
+    "Lasso Regression": {
+      "holdout_rmse": 117936.1543983455,
+      "holdout_mae": 18667.76211616925,
+      "holdout_r2": -2.1069421391631753
+    },
+    "Random Forest": {
+      "holdout_rmse": 26380.059801206608,
+      "holdout_mae": 16607.24898140373,
+      "holdout_r2": 0.8445499765038673
+    },
+    "XGBoost": {
+      "holdout_rmse": 22386.85595842453,
+      "holdout_mae": 14916.884310787671,
+      "holdout_r2": 0.888049651349802
+    }
+  },
+  "holdout_predictions": [
+    {
+      "Actual": 105000.0,
+      "Predicted": 115046.7071829493
+    },
+    {
+      "Actual": 119500.0,
+      "Predicted": 104963.4981693094
+    },
+    {
+      "Actual": 219210.0,
+      "Predicted": 222367.66021475437
+    },
+    {
+      "Actual": 88000.0,
+      "Predicted": 89021.54800583882
+    },
+    {
+      "Actual": 208900.0,
+      "Predicted": 207861.6738282409
+    },
+    {
+      "Actual": 157000.0,
+      "Predicted": 149447.90322746785
+    },
+    {
+      "Actual": 84500.0,
+      "Predicted": 126520.06907270727
+    },
+    {
+      "Actual": 151000.0,
+      "Predicted": 156922.21808664667
+    },
+    {
+      "Actual": 107000.0,
+      "Predicted": 134788.46749649488
+    },
+    {
+      "Actual": 137000.0,
+      "Predicted": 129907.39937625676
+    },
+    {
+      "Actual": 142500.0,
+      "Predicted": 151829.2608248783
+    },
+    {
+      "Actual": 180000.0,
+      "Predicted": 209368.20448838623
+    },
+    {
+      "Actual": 169000.0,
+      "Predicted": 183232.97462519215
+    },
+    {
+      "Actual": 266000.0,
+      "Predicted": 269025.81651845213
+    },
+    {
+      "Actual": 305000.0,
+      "Predicted": 325832.60939316294
+    },
+    {
+      "Actual": 179900.0,
+      "Predicted": 170494.46934302137
+    },
+    {
+      "Actual": 162000.0,
+      "Predicted": 162035.71404274064
+    },
+    {
+      "Actual": 236000.0,
+      "Predicted": 230069.6001072721
+    },
+    {
+      "Actual": 129500.0,
+      "Predicted": 124000.05474135981
+    },
+    {
+      "Actual": 137000.0,
+      "Predicted": 135328.77181681123
+    },
+    {
+      "Actual": 118964.0,
+      "Predicted": 103438.80388632923
+    },
+    {
+      "Actual": 133000.0,
+      "Predicted": 139715.95926595764
+    },
+    {
+      "Actual": 120000.0,
+      "Predicted": 126414.78800659419
+    },
+    {
+      "Actual": 236000.0,
+      "Predicted": 225783.3291292843
+    },
+    {
+      "Actual": 37900.0,
+      "Predicted": 68718.66179367765
+    },
+    {
+      "Actual": 130000.0,
+      "Predicted": 142719.2201165744
+    },
+    {
+      "Actual": 91300.0,
+      "Predicted": 102911.77558598755
+    },
+    {
+      "Actual": 315000.0,
+      "Predicted": 327589.8928809981
+    },
+    {
+      "Actual": 120500.0,
+      "Predicted": 115963.67060427868
+    },
+    {
+      "Actual": 161500.0,
+      "Predicted": 167549.68953662744
+    },
+    {
+      "Actual": 314813.0,
+      "Predicted": 335021.0372387925
+    },
+    {
+      "Actual": 125000.0,
+      "Predicted": 109347.80835292616
+    },
+    {
+      "Actual": 110000.0,
+      "Predicted": 99039.08414010926
+    },
+    {
+      "Actual": 185000.0,
+      "Predicted": 191246.55479569102
+    },
+    {
+      "Actual": 235000.0,
+      "Predicted": 217451.49945658183
+    },
+    {
+      "Actual": 350000.0,
+      "Predicted": 375411.6235376074
+    },
+    {
+      "Actual": 120000.0,
+      "Predicted": 139830.76941713397
+    },
+    {
+      "Actual": 93000.0,
+      "Predicted": 111015.21389276793
+    },
+    {
+      "Actual": 325624.0,
+      "Predicted": 374799.96972514055
+    },
+    {
+      "Actual": 192500.0,
+      "Predicted": 201783.7995831569
+    },
+    {
+      "Actual": 82500.0,
+      "Predicted": 171878.8309902801
+    },
+    {
+      "Actual": 170000.0,
+      "Predicted": 178510.13432236234
+    },
+    {
+      "Actual": 116000.0,
+      "Predicted": 125059.56829805297
+    },
+    {
+      "Actual": 141000.0,
+      "Predicted": 139413.47423267897
+    },
+    {
+      "Actual": 153000.0,
+      "Predicted": 152174.1774130497
+    },
+    {
+      "Actual": 237000.0,
+      "Predicted": 232471.3305021047
+    },
+    {
+      "Actual": 178000.0,
+      "Predicted": 152552.87940207665
+    },
+    {
+      "Actual": 134450.0,
+      "Predicted": 124585.99862698569
+    },
+    {
+      "Actual": 64500.0,
+      "Predicted": 100798.20206063804
+    },
+    {
+      "Actual": 280000.0,
+      "Predicted": 321925.1103876029
+    },
+    {
+      "Actual": 211000.0,
+      "Predicted": 232034.43345064184
+    },
+    {
+      "Actual": 187750.0,
+      "Predicted": 216269.86607243452
+    },
+    {
+      "Actual": 176000.0,
+      "Predicted": 150244.87482371766
+    },
+    {
+      "Actual": 129900.0,
+      "Predicted": 121957.35310909325
+    },
+    {
+      "Actual": 128500.0,
+      "Predicted": 125881.12540522308
+    },
+    {
+      "Actual": 145000.0,
+      "Predicted": 143746.48597289444
+    },
+    {
+      "Actual": 81000.0,
+      "Predicted": 92074.67428436043
+    },
+    {
+      "Actual": 123000.0,
+      "Predicted": 115811.73309817677
+    },
+    {
+      "Actual": 173000.0,
+      "Predicted": 177725.3317144012
+    },
+    {
+      "Actual": 118500.0,
+      "Predicted": 115260.66034188854
+    },
+    {
+      "Actual": 205000.0,
+      "Predicted": 229477.94068717817
+    },
+    {
+      "Actual": 174500.0,
+      "Predicted": 169808.55219928423
+    },
+    {
+      "Actual": 197900.0,
+      "Predicted": 204310.32121183677
+    },
+    {
+      "Actual": 106000.0,
+      "Predicted": 141378.25943234205
+    },
+    {
+      "Actual": 234000.0,
+      "Predicted": 191440.55575494937
+    },
+    {
+      "Actual": 155000.0,
+      "Predicted": 162206.35069940926
+    },
+    {
+      "Actual": 169500.0,
+      "Predicted": 158732.39640763574
+    },
+    {
+      "Actual": 76500.0,
+      "Predicted": 82379.09931038054
+    },
+    {
+      "Actual": 140000.0,
+      "Predicted": 163029.34976629884
+    },
+    {
+      "Actual": 200000.0,
+      "Predicted": 221144.4774033261
+    },
+    {
+      "Actual": 267000.0,
+      "Predicted": 261856.0460282988
+    },
+    {
+      "Actual": 204000.0,
+      "Predicted": 209987.9247093013
+    },
+    {
+      "Actual": 120000.0,
+      "Predicted": 139718.3336506736
+    },
+    {
+      "Actual": 115000.0,
+      "Predicted": 104317.9312864226
+    },
+    {
+      "Actual": 250000.0,
+      "Predicted": 250625.73975258565
+    },
+    {
+      "Actual": 262500.0,
+      "Predicted": 251708.57900922117
+    },
+    {
+      "Actual": 101800.0,
+      "Predicted": 99332.58198369502
+    },
+    {
+      "Actual": 245000.0,
+      "Predicted": 236600.06629763893
+    },
+    {
+      "Actual": 132000.0,
+      "Predicted": 138156.8798744597
+    },
+    {
+      "Actual": 205000.0,
+      "Predicted": 171250.28126953187
+    },
+    {
+      "Actual": 114500.0,
+      "Predicted": 129374.07721259737
+    },
+    {
+      "Actual": 299800.0,
+      "Predicted": 307561.7109719124
+    },
+    {
+      "Actual": 140000.0,
+      "Predicted": 137575.61397280876
+    },
+    {
+      "Actual": 155000.0,
+      "Predicted": 163284.17878757848
+    },
+    {
+      "Actual": 73000.0,
+      "Predicted": 76782.57508401833
+    },
+    {
+      "Actual": 93000.0,
+      "Predicted": 89805.43687049461
+    },
+    {
+      "Actual": 185000.0,
+      "Predicted": 197712.35465139322
+    },
+    {
+      "Actual": 191000.0,
+      "Predicted": 195015.54407211515
+    },
+    {
+      "Actual": 190000.0,
+      "Predicted": 186239.66953061018
+    },
+    {
+      "Actual": 141000.0,
+      "Predicted": 147722.77236809718
+    },
+    {
+      "Actual": 143500.0,
+      "Predicted": 158447.27779419706
+    },
+    {
+      "Actual": 176000.0,
+      "Predicted": 169597.55352688118
+    },
+    {
+      "Actual": 100000.0,
+      "Predicted": 99277.41007793954
+    },
+    {
+      "Actual": 272000.0,
+      "Predicted": 277204.2897781868
+    },
+    {
+      "Actual": 180000.0,
+      "Predicted": 173764.69520230085
+    },
+    {
+      "Actual": 212000.0,
+      "Predicted": 245302.72590648217
+    },
+    {
+      "Actual": 211000.0,
+      "Predicted": 204521.7005103994
+    },
+    {
+      "Actual": 83000.0,
+      "Predicted": 96476.52562341528
+    },
+    {
+      "Actual": 152000.0,
+      "Predicted": 148645.5762927549
+    },
+    {
+      "Actual": 85000.0,
+      "Predicted": 98525.92803352748
+    },
+    {
+      "Actual": 136000.0,
+      "Predicted": 128125.08966412432
+    },
+    {
+      "Actual": 200000.0,
+      "Predicted": 175923.0676406909
+    },
+    {
+      "Actual": 146000.0,
+      "Predicted": 143293.91374836132
+    },
+    {
+      "Actual": 148500.0,
+      "Predicted": 137479.56739018296
+    },
+    {
+      "Actual": 228950.0,
+      "Predicted": 301795.47062341595
+    },
+    {
+      "Actual": 147000.0,
+      "Predicted": 145660.55265610566
+    },
+    {
+      "Actual": 173733.0,
+      "Predicted": 176921.16175968107
+    },
+    {
+      "Actual": 238000.0,
+      "Predicted": 273304.4467804557
+    },
+    {
+      "Actual": 218000.0,
+      "Predicted": 221327.4452830386
+    },
+    {
+      "Actual": 140000.0,
+      "Predicted": 147424.94135183995
+    },
+    {
+      "Actual": 187000.0,
+      "Predicted": 202906.3876332104
+    },
+    {
+      "Actual": 66500.0,
+      "Predicted": 98932.56805775824
+    },
+    {
+      "Actual": 172500.0,
+      "Predicted": 167745.50208500543
+    },
+    {
+      "Actual": 197500.0,
+      "Predicted": 196936.05533422195
+    },
+    {
+      "Actual": 60000.0,
+      "Predicted": 97634.43010088142
+    },
+    {
+      "Actual": 140000.0,
+      "Predicted": 135340.6097891453
+    },
+    {
+      "Actual": 143000.0,
+      "Predicted": 145638.82469726217
+    },
+    {
+      "Actual": 127000.0,
+      "Predicted": 142500.14668369928
+    },
+    {
+      "Actual": 295493.0,
+      "Predicted": 267996.87232006784
+    },
+    {
+      "Actual": 183900.0,
+      "Predicted": 163216.69935553
+    },
+    {
+      "Actual": 135000.0,
+      "Predicted": 132293.40872271848
+    },
+    {
+      "Actual": 119900.0,
+      "Predicted": 130987.60543006043
+    },
+    {
+      "Actual": 215000.0,
+      "Predicted": 200660.47364666086
+    },
+    {
+      "Actual": 127500.0,
+      "Predicted": 127935.84609924385
+    },
+    {
+      "Actual": 188500.0,
+      "Predicted": 184953.57082238016
+    },
+    {
+      "Actual": 185000.0,
+      "Predicted": 198904.44427909833
+    },
+    {
+      "Actual": 202665.0,
+      "Predicted": 205656.49693228048
+    },
+    {
+      "Actual": 167900.0,
+      "Predicted": 160175.8793156484
+    },
+    {
+      "Actual": 313000.0,
+      "Predicted": 315053.4834597661
+    },
+    {
+      "Actual": 176000.0,
+      "Predicted": 166467.8481412478
+    },
+    {
+      "Actual": 157900.0,
+      "Predicted": 157698.79332938517
+    },
+    {
+      "Actual": 183500.0,
+      "Predicted": 189672.29023500372
+    },
+    {
+      "Actual": 175000.0,
+      "Predicted": 176148.40228565934
+    },
+    {
+      "Actual": 227000.0,
+      "Predicted": 242443.04213571787
+    },
+    {
+      "Actual": 90000.0,
+      "Predicted": 108718.87894305438
+    },
+    {
+      "Actual": 110000.0,
+      "Predicted": 136519.346957622
+    },
+    {
+      "Actual": 173900.0,
+      "Predicted": 176668.81375164364
+    },
+    {
+      "Actual": 250000.0,
+      "Predicted": 290956.6006768278
+    },
+    {
+      "Actual": 260000.0,
+      "Predicted": 257341.00926467899
+    },
+    {
+      "Actual": 189000.0,
+      "Predicted": 206069.68812291257
+    },
+    {
+      "Actual": 205000.0,
+      "Predicted": 226546.42136619904
+    },
+    {
+      "Actual": 125000.0,
+      "Predicted": 136611.2121648701
+    },
+    {
+      "Actual": 85500.0,
+      "Predicted": 93223.66124058518
+    },
+    {
+      "Actual": 149350.0,
+      "Predicted": 137768.77065363334
+    },
+    {
+      "Actual": 164000.0,
+      "Predicted": 142617.9440525163
+    },
+    {
+      "Actual": 187500.0,
+      "Predicted": 211763.91849784268
+    },
+    {
+      "Actual": 124500.0,
+      "Predicted": 129938.75809798627
+    },
+    {
+      "Actual": 220000.0,
+      "Predicted": 252909.6209200977
+    },
+    {
+      "Actual": 160000.0,
+      "Predicted": 2305100.9736958942
+    },
+    {
+      "Actual": 259000.0,
+      "Predicted": 239733.3734967355
+    },
+    {
+      "Actual": 157000.0,
+      "Predicted": 142813.01011367908
+    },
+    {
+      "Actual": 144000.0,
+      "Predicted": 133135.26988077062
+    },
+    {
+      "Actual": 144000.0,
+      "Predicted": 145181.202136997
+    },
+    {
+      "Actual": 255000.0,
+      "Predicted": 252575.85809346856
+    },
+    {
+      "Actual": 165000.0,
+      "Predicted": 137529.11191106483
+    },
+    {
+      "Actual": 93000.0,
+      "Predicted": 104551.72397895138
+    },
+    {
+      "Actual": 538000.0,
+      "Predicted": 574649.0103617546
+    },
+    {
+      "Actual": 137000.0,
+      "Predicted": 135758.92390595973
+    },
+    {
+      "Actual": 88000.0,
+      "Predicted": 98380.34469610981
+    },
+    {
+      "Actual": 149000.0,
+      "Predicted": 175755.03409282857
+    },
+    {
+      "Actual": 136000.0,
+      "Predicted": 172377.48914108693
+    },
+    {
+      "Actual": 248328.0,
+      "Predicted": 253035.48557962175
+    },
+    {
+      "Actual": 100000.0,
+      "Predicted": 92504.67167109113
+    },
+    {
+      "Actual": 179000.0,
+      "Predicted": 182809.8880688102
+    },
+    {
+      "Actual": 170000.0,
+      "Predicted": 161742.32770549183
+    },
+    {
+      "Actual": 180000.0,
+      "Predicted": 166901.4028591744
+    },
+    {
+      "Actual": 233000.0,
+      "Predicted": 219914.78659274208
+    },
+    {
+      "Actual": 148000.0,
+      "Predicted": 147036.18391815893
+    },
+    {
+      "Actual": 166000.0,
+      "Predicted": 125313.82527282808
+    },
+    {
+      "Actual": 124000.0,
+      "Predicted": 124166.83503736818
+    },
+    {
+      "Actual": 174900.0,
+      "Predicted": 176808.3102402505
+    },
+    {
+      "Actual": 189000.0,
+      "Predicted": 206356.00271876127
+    },
+    {
+      "Actual": 239900.0,
+      "Predicted": 231896.48509072015
+    },
+    {
+      "Actual": 278000.0,
+      "Predicted": 257729.4353310369
+    },
+    {
+      "Actual": 326000.0,
+      "Predicted": 357029.0610456797
+    },
+    {
+      "Actual": 120500.0,
+      "Predicted": 126504.8526174596
+    },
+    {
+      "Actual": 147000.0,
+      "Predicted": 132919.1050493438
+    },
+    {
+      "Actual": 165000.0,
+      "Predicted": 185558.56455742038
+    },
+    {
+      "Actual": 301500.0,
+      "Predicted": 293961.41109383886
+    },
+    {
+      "Actual": 173000.0,
+      "Predicted": 175112.20372756087
+    },
+    {
+      "Actual": 128000.0,
+      "Predicted": 117802.06504936039
+    },
+    {
+      "Actual": 128500.0,
+      "Predicted": 122168.14072001127
+    },
+    {
+      "Actual": 212900.0,
+      "Predicted": 224305.9804283231
+    },
+    {
+      "Actual": 302000.0,
+      "Predicted": 300248.87531880126
+    },
+    {
+      "Actual": 52000.0,
+      "Predicted": 72012.93655766595
+    },
+    {
+      "Actual": 124000.0,
+      "Predicted": 137514.43578516282
+    },
+    {
+      "Actual": 178000.0,
+      "Predicted": 169579.75482673084
+    },
+    {
+      "Actual": 253000.0,
+      "Predicted": 233736.76780757072
+    },
+    {
+      "Actual": 90000.0,
+      "Predicted": 133361.79524815263
+    },
+    {
+      "Actual": 271000.0,
+      "Predicted": 256116.33844939742
+    },
+    {
+      "Actual": 140000.0,
+      "Predicted": 132591.1744478801
+    },
+    {
+      "Actual": 215000.0,
+      "Predicted": 210508.06871099252
+    },
+    {
+      "Actual": 185000.0,
+      "Predicted": 193890.35172553486
+    },
+    {
+      "Actual": 359100.0,
+      "Predicted": 326975.71879897994
+    },
+    {
+      "Actual": 125000.0,
+      "Predicted": 104387.29330822562
+    },
+    {
+      "Actual": 230500.0,
+      "Predicted": 230326.68942784244
+    },
+    {
+      "Actual": 81000.0,
+      "Predicted": 78607.81561846826
+    },
+    {
+      "Actual": 148500.0,
+      "Predicted": 150886.83955192644
+    },
+    {
+      "Actual": 140000.0,
+      "Predicted": 139641.92255761268
+    },
+    {
+      "Actual": 135000.0,
+      "Predicted": 135197.4874755381
+    },
+    {
+      "Actual": 154000.0,
+      "Predicted": 158280.5546549289
+    },
+    {
+      "Actual": 128500.0,
+      "Predicted": 135326.15668468553
+    },
+    {
+      "Actual": 158000.0,
+      "Predicted": 141357.08479867384
+    },
+    {
+      "Actual": 145000.0,
+      "Predicted": 174757.82809819045
+    },
+    {
+      "Actual": 315500.0,
+      "Predicted": 312154.5482949602
+    },
+    {
+      "Actual": 153000.0,
+      "Predicted": 162268.77678377333
+    },
+    {
+      "Actual": 145000.0,
+      "Predicted": 141129.4577192415
+    },
+    {
+      "Actual": 248000.0,
+      "Predicted": 246831.59044153907
+    },
+    {
+      "Actual": 215000.0,
+      "Predicted": 223135.26057481524
+    },
+    {
+      "Actual": 157000.0,
+      "Predicted": 166271.91849828992
+    },
+    {
+      "Actual": 302000.0,
+      "Predicted": 345659.72580628254
+    },
+    {
+      "Actual": 157000.0,
+      "Predicted": 151609.21802393274
+    },
+    {
+      "Actual": 239000.0,
+      "Predicted": 251435.7277365863
+    },
+    {
+      "Actual": 222500.0,
+      "Predicted": 227336.09413600204
+    },
+    {
+      "Actual": 160000.0,
+      "Predicted": 151528.6162659985
+    },
+    {
+      "Actual": 179000.0,
+      "Predicted": 121089.43945391549
+    },
+    {
+      "Actual": 119500.0,
+      "Predicted": 117433.77779836838
+    },
+    {
+      "Actual": 127000.0,
+      "Predicted": 123579.98061075408
+    },
+    {
+      "Actual": 312500.0,
+      "Predicted": 304343.52724869846
+    },
+    {
+      "Actual": 188000.0,
+      "Predicted": 161019.05338500047
+    },
+    {
+      "Actual": 124000.0,
+      "Predicted": 107166.80588252265
+    },
+    {
+      "Actual": 226000.0,
+      "Predicted": 210375.3091818325
+    },
+    {
+      "Actual": 287000.0,
+      "Predicted": 243332.31602191698
+    },
+    {
+      "Actual": 128000.0,
+      "Predicted": 124880.42160672865
+    },
+    {
+      "Actual": 325000.0,
+      "Predicted": 329832.88944654533
+    },
+    {
+      "Actual": 178000.0,
+      "Predicted": 176409.1186309313
+    },
+    {
+      "Actual": 230000.0,
+      "Predicted": 225024.0888896067
+    },
+    {
+      "Actual": 277500.0,
+      "Predicted": 276813.0197318423
+    },
+    {
+      "Actual": 145000.0,
+      "Predicted": 140256.2383531996
+    },
+    {
+      "Actual": 183200.0,
+      "Predicted": 184087.48430618623
+    },
+    {
+      "Actual": 144000.0,
+      "Predicted": 159771.1736943117
+    },
+    {
+      "Actual": 227000.0,
+      "Predicted": 204598.54579248684
+    },
+    {
+      "Actual": 161500.0,
+      "Predicted": 170097.16264185758
+    },
+    {
+      "Actual": 188000.0,
+      "Predicted": 180795.85073643547
+    },
+    {
+      "Actual": 92000.0,
+      "Predicted": 84083.47273675259
+    },
+    {
+      "Actual": 181000.0,
+      "Predicted": 181335.49193732082
+    },
+    {
+      "Actual": 136500.0,
+      "Predicted": 147804.65580838823
+    },
+    {
+      "Actual": 240000.0,
+      "Predicted": 270046.43245662184
+    },
+    {
+      "Actual": 134000.0,
+      "Predicted": 123313.29291798953
+    },
+    {
+      "Actual": 320000.0,
+      "Predicted": 284650.94556128315
+    },
+    {
+      "Actual": 122000.0,
+      "Predicted": 122398.82630841296
+    },
+    {
+      "Actual": 95000.0,
+      "Predicted": 91985.60777922766
+    },
+    {
+      "Actual": 135500.0,
+      "Predicted": 147671.39199791974
+    },
+    {
+      "Actual": 135000.0,
+      "Predicted": 153623.08662990312
+    },
+    {
+      "Actual": 163500.0,
+      "Predicted": 161507.61642158398
+    },
+    {
+      "Actual": 149000.0,
+      "Predicted": 141241.15213128782
+    },
+    {
+      "Actual": 248900.0,
+      "Predicted": 255263.4652991583
+    },
+    {
+      "Actual": 136900.0,
+      "Predicted": 141425.93996487724
+    },
+    {
+      "Actual": 140000.0,
+      "Predicted": 160274.67800800572
+    },
+    {
+      "Actual": 124000.0,
+      "Predicted": 122632.83828698352
+    },
+    {
+      "Actual": 266000.0,
+      "Predicted": 271105.0309706017
+    },
+    {
+      "Actual": 128500.0,
+      "Predicted": 133914.5275480442
+    },
+    {
+      "Actual": 246578.0,
+      "Predicted": 219261.321623988
+    },
+    {
+      "Actual": 159500.0,
+      "Predicted": 139317.75487935095
+    },
+    {
+      "Actual": 160000.0,
+      "Predicted": 155933.5099872621
+    },
+    {
+      "Actual": 140000.0,
+      "Predicted": 130899.06620987212
+    },
+    {
+      "Actual": 165000.0,
+      "Predicted": 148030.73374229332
+    },
+    {
+      "Actual": 158000.0,
+      "Predicted": 184935.9516687992
+    },
+    {
+      "Actual": 250000.0,
+      "Predicted": 234450.40918422042
+    },
+    {
+      "Actual": 263000.0,
+      "Predicted": 226818.57164311927
+    },
+    {
+      "Actual": 116500.0,
+      "Predicted": 120864.67710023656
+    },
+    {
+      "Actual": 341000.0,
+      "Predicted": 318915.7874748344
+    },
+    {
+      "Actual": 220000.0,
+      "Predicted": 211473.51621176815
+    },
+    {
+      "Actual": 207500.0,
+      "Predicted": 225313.03626352403
+    },
+    {
+      "Actual": 40000.0,
+      "Predicted": 68116.83506457544
+    },
+    {
+      "Actual": 100000.0,
+      "Predicted": 107416.58359495168
+    },
+    {
+      "Actual": 179540.0,
+      "Predicted": 190665.81061868646
+    },
+    {
+      "Actual": 120000.0,
+      "Predicted": 119939.79603351574
+    },
+    {
+      "Actual": 130000.0,
+      "Predicted": 134615.01372391373
+    },
+    {
+      "Actual": 157500.0,
+      "Predicted": 143299.4168075276
+    },
+    {
+      "Actual": 275500.0,
+      "Predicted": 285091.91989360796
+    },
+    {
+      "Actual": 113000.0,
+      "Predicted": 109670.16136001903
+    },
+    {
+      "Actual": 224900.0,
+      "Predicted": 204030.3207758457
+    },
+    {
+      "Actual": 285000.0,
+      "Predicted": 276368.6551049697
+    },
+    {
+      "Actual": 79000.0,
+      "Predicted": 96539.62399790912
+    },
+    {
+      "Actual": 207500.0,
+      "Predicted": 191836.91429041768
+    },
+    {
+      "Actual": 210000.0,
+      "Predicted": 174552.5424873494
+    },
+    {
+      "Actual": 174000.0,
+      "Predicted": 155390.8292170695
+    },
+    {
+      "Actual": 184000.0,
+      "Predicted": 201842.26794236572
+    },
+    {
+      "Actual": 110000.0,
+      "Predicted": 115328.02263347631
+    },
+    {
+      "Actual": 324000.0,
+      "Predicted": 293259.0099403257
+    },
+    {
+      "Actual": 260000.0,
+      "Predicted": 238126.88119855052
+    },
+    {
+      "Actual": 125500.0,
+      "Predicted": 115689.18905438326
+    },
+    {
+      "Actual": 156000.0,
+      "Predicted": 152763.88902523692
+    },
+    {
+      "Actual": 180000.0,
+      "Predicted": 218557.2976184798
+    },
+    {
+      "Actual": 124900.0,
+      "Predicted": 120475.31727200582
+    },
+    {
+      "Actual": 196000.0,
+      "Predicted": 212196.2976362266
+    },
+    {
+      "Actual": 146800.0,
+      "Predicted": 154538.16849911358
+    },
+    {
+      "Actual": 217500.0,
+      "Predicted": 218547.5362025297
+    },
+    {
+      "Actual": 260000.0,
+      "Predicted": 283666.8507726687
+    },
+    {
+      "Actual": 126500.0,
+      "Predicted": 119114.391015124
+    },
+    {
+      "Actual": 107500.0,
+      "Predicted": 97835.43607298024
+    }
+  ],
+  "raw_data_sample": [
+    {
+      "GrLivArea": 1068,
+      "SalePrice": 154500
+    },
+    {
+      "GrLivArea": 2622,
+      "SalePrice": 325000
+    },
+    {
+      "GrLivArea": 1028,
+      "SalePrice": 115000
+    },
+    {
+      "GrLivArea": 1664,
+      "SalePrice": 159000
+    },
+    {
+      "GrLivArea": 1620,
+      "SalePrice": 315500
+    },
+    {
+      "GrLivArea": 630,
+      "SalePrice": 75500
+    },
+    {
+      "GrLivArea": 1954,
+      "SalePrice": 311500
+    },
+    {
+      "GrLivArea": 1456,
+      "SalePrice": 146000
+    },
+    {
+      "GrLivArea": 630,
+      "SalePrice": 84500
+    },
+    {
+      "GrLivArea": 1393,
+      "SalePrice": 135500
+    },
+    {
+      "GrLivArea": 1477,
+      "SalePrice": 145000
+    },
+    {
+      "GrLivArea": 874,
+      "SalePrice": 130000
+    },
+    {
+      "GrLivArea": 894,
+      "SalePrice": 81000
+    },
+    {
+      "GrLivArea": 1535,
+      "SalePrice": 214000
+    },
+    {
+      "GrLivArea": 1690,
+      "SalePrice": 181000
+    },
+    {
+      "GrLivArea": 1008,
+      "SalePrice": 134500
+    },
+    {
+      "GrLivArea": 1720,
+      "SalePrice": 183500
+    },
+    {
+      "GrLivArea": 1134,
+      "SalePrice": 135000
+    },
+    {
+      "GrLivArea": 1012,
+      "SalePrice": 118400
+    },
+    {
+      "GrLivArea": 1479,
+      "SalePrice": 226000
+    },
+    {
+      "GrLivArea": 1803,
+      "SalePrice": 155000
+    },
+    {
+      "GrLivArea": 1590,
+      "SalePrice": 210000
+    },
+    {
+      "GrLivArea": 1476,
+      "SalePrice": 173500
+    },
+    {
+      "GrLivArea": 936,
+      "SalePrice": 129000
+    },
+    {
+      "GrLivArea": 1431,
+      "SalePrice": 192000
+    },
+    {
+      "GrLivArea": 1199,
+      "SalePrice": 153900
+    },
+    {
+      "GrLivArea": 1340,
+      "SalePrice": 181134
+    },
+    {
+      "GrLivArea": 864,
+      "SalePrice": 141000
+    },
+    {
+      "GrLivArea": 1604,
+      "SalePrice": 181000
+    },
+    {
+      "GrLivArea": 1352,
+      "SalePrice": 208900
+    },
+    {
+      "GrLivArea": 1252,
+      "SalePrice": 127000
+    },
+    {
+      "GrLivArea": 2046,
+      "SalePrice": 284000
+    },
+    {
+      "GrLivArea": 3086,
+      "SalePrice": 200500
+    },
+    {
+      "GrLivArea": 952,
+      "SalePrice": 135750
+    },
+    {
+      "GrLivArea": 1636,
+      "SalePrice": 255000
+    },
+    {
+      "GrLivArea": 1136,
+      "SalePrice": 140000
+    },
+    {
+      "GrLivArea": 1904,
+      "SalePrice": 138000
+    },
+    {
+      "GrLivArea": 1928,
+      "SalePrice": 219500
+    },
+    {
+      "GrLivArea": 2520,
+      "SalePrice": 310000
+    },
+    {
+      "GrLivArea": 882,
+      "SalePrice": 97000
+    },
+    {
+      "GrLivArea": 1176,
+      "SalePrice": 114500
+    },
+    {
+      "GrLivArea": 2110,
+      "SalePrice": 205000
+    },
+    {
+      "GrLivArea": 950,
+      "SalePrice": 119500
+    },
+    {
+      "GrLivArea": 2042,
+      "SalePrice": 253293
+    },
+    {
+      "GrLivArea": 988,
+      "SalePrice": 128500
+    },
+    {
+      "GrLivArea": 2210,
+      "SalePrice": 117500
+    },
+    {
+      "GrLivArea": 912,
+      "SalePrice": 115000
+    },
+    {
+      "GrLivArea": 955,
+      "SalePrice": 127000
+    },
+    {
+      "GrLivArea": 2296,
+      "SalePrice": 451950
+    },
+    {
+      "GrLivArea": 1524,
+      "SalePrice": 144000
+    },
+    {
+      "GrLivArea": 988,
+      "SalePrice": 119000
+    },
+    {
+      "GrLivArea": 1567,
+      "SalePrice": 196000
+    },
+    {
+      "GrLivArea": 1304,
+      "SalePrice": 115000
+    },
+    {
+      "GrLivArea": 2898,
+      "SalePrice": 287000
+    },
+    {
+      "GrLivArea": 848,
+      "SalePrice": 144500
+    },
+    {
+      "GrLivArea": 1734,
+      "SalePrice": 260000
+    },
+    {
+      "GrLivArea": 1775,
+      "SalePrice": 213000
+    },
+    {
+      "GrLivArea": 1126,
+      "SalePrice": 175000
+    },
+    {
+      "GrLivArea": 1117,
+      "SalePrice": 107000
+    },
+    {
+      "GrLivArea": 827,
+      "SalePrice": 107500
+    },
+    {
+      "GrLivArea": 520,
+      "SalePrice": 68500
+    },
+    {
+      "GrLivArea": 1246,
+      "SalePrice": 154000
+    },
+    {
+      "GrLivArea": 2473,
+      "SalePrice": 317000
+    },
+    {
+      "GrLivArea": 1506,
+      "SalePrice": 264132
+    },
+    {
+      "GrLivArea": 1776,
+      "SalePrice": 283463
+    },
+    {
+      "GrLivArea": 2158,
+      "SalePrice": 243000
+    },
+    {
+      "GrLivArea": 1034,
+      "SalePrice": 109000
+    },
+    {
+      "GrLivArea": 2262,
+      "SalePrice": 305000
+    },
+    {
+      "GrLivArea": 974,
+      "SalePrice": 93500
+    },
+    {
+      "GrLivArea": 1458,
+      "SalePrice": 176000
+    },
+    {
+      "GrLivArea": 1535,
+      "SalePrice": 118858
+    },
+    {
+      "GrLivArea": 1211,
+      "SalePrice": 134000
+    },
+    {
+      "GrLivArea": 907,
+      "SalePrice": 109008
+    },
+    {
+      "GrLivArea": 1040,
+      "SalePrice": 93500
+    },
+    {
+      "GrLivArea": 2364,
+      "SalePrice": 611657
+    },
+    {
+      "GrLivArea": 1291,
+      "SalePrice": 173000
+    },
+    {
+      "GrLivArea": 2392,
+      "SalePrice": 348000
+    },
+    {
+      "GrLivArea": 2418,
+      "SalePrice": 341000
+    },
+    {
+      "GrLivArea": 1150,
+      "SalePrice": 141000
+    },
+    {
+      "GrLivArea": 780,
+      "SalePrice": 124900
+    },
+    {
+      "GrLivArea": 987,
+      "SalePrice": 118000
+    },
+    {
+      "GrLivArea": 1077,
+      "SalePrice": 67000
+    },
+    {
+      "GrLivArea": 988,
+      "SalePrice": 113000
+    },
+    {
+      "GrLivArea": 886,
+      "SalePrice": 91300
+    },
+    {
+      "GrLivArea": 1400,
+      "SalePrice": 149500
+    },
+    {
+      "GrLivArea": 1573,
+      "SalePrice": 133000
+    },
+    {
+      "GrLivArea": 1939,
+      "SalePrice": 266000
+    },
+    {
+      "GrLivArea": 1453,
+      "SalePrice": 190000
+    },
+    {
+      "GrLivArea": 848,
+      "SalePrice": 155900
+    },
+    {
+      "GrLivArea": 1456,
+      "SalePrice": 155835
+    },
+    {
+      "GrLivArea": 1559,
+      "SalePrice": 153500
+    },
+    {
+      "GrLivArea": 1620,
+      "SalePrice": 152000
+    },
+    {
+      "GrLivArea": 816,
+      "SalePrice": 124500
+    },
+    {
+      "GrLivArea": 2730,
+      "SalePrice": 301000
+    },
+    {
+      "GrLivArea": 1768,
+      "SalePrice": 136500
+    },
+    {
+      "GrLivArea": 1316,
+      "SalePrice": 169990
+    },
+    {
+      "GrLivArea": 1548,
+      "SalePrice": 205000
+    },
+    {
+      "GrLivArea": 1452,
+      "SalePrice": 183900
+    },
+    {
+      "GrLivArea": 1498,
+      "SalePrice": 204900
+    },
+    {
+      "GrLivArea": 2353,
+      "SalePrice": 260000
+    },
+    {
+      "GrLivArea": 1657,
+      "SalePrice": 163500
+    },
+    {
+      "GrLivArea": 1768,
+      "SalePrice": 224900
+    },
+    {
+      "GrLivArea": 2223,
+      "SalePrice": 244000
+    },
+    {
+      "GrLivArea": 854,
+      "SalePrice": 132000
+    },
+    {
+      "GrLivArea": 1432,
+      "SalePrice": 194000
+    },
+    {
+      "GrLivArea": 1478,
+      "SalePrice": 156500
+    },
+    {
+      "GrLivArea": 1026,
+      "SalePrice": 156000
+    },
+    {
+      "GrLivArea": 1742,
+      "SalePrice": 275000
+    },
+    {
+      "GrLivArea": 990,
+      "SalePrice": 145000
+    },
+    {
+      "GrLivArea": 2080,
+      "SalePrice": 135000
+    },
+    {
+      "GrLivArea": 800,
+      "SalePrice": 60000
+    },
+    {
+      "GrLivArea": 1040,
+      "SalePrice": 124000
+    },
+    {
+      "GrLivArea": 1040,
+      "SalePrice": 127000
+    },
+    {
+      "GrLivArea": 1513,
+      "SalePrice": 137500
+    },
+    {
+      "GrLivArea": 1797,
+      "SalePrice": 213500
+    },
+    {
+      "GrLivArea": 804,
+      "SalePrice": 119000
+    },
+    {
+      "GrLivArea": 901,
+      "SalePrice": 107900
+    },
+    {
+      "GrLivArea": 872,
+      "SalePrice": 123000
+    },
+    {
+      "GrLivArea": 1902,
+      "SalePrice": 112000
+    },
+    {
+      "GrLivArea": 1629,
+      "SalePrice": 284000
+    },
+    {
+      "GrLivArea": 767,
+      "SalePrice": 133000
+    },
+    {
+      "GrLivArea": 848,
+      "SalePrice": 149000
+    },
+    {
+      "GrLivArea": 1600,
+      "SalePrice": 169000
+    },
+    {
+      "GrLivArea": 1848,
+      "SalePrice": 207000
+    },
+    {
+      "GrLivArea": 1412,
+      "SalePrice": 175000
+    },
+    {
+      "GrLivArea": 935,
+      "SalePrice": 137000
+    },
+    {
+      "GrLivArea": 2256,
+      "SalePrice": 236000
+    },
+    {
+      "GrLivArea": 935,
+      "SalePrice": 79500
+    },
+    {
+      "GrLivArea": 1099,
+      "SalePrice": 144000
+    },
+    {
+      "GrLivArea": 1664,
+      "SalePrice": 162900
+    },
+    {
+      "GrLivArea": 1582,
+      "SalePrice": 185900
+    },
+    {
+      "GrLivArea": 2028,
+      "SalePrice": 369900
+    },
+    {
+      "GrLivArea": 1779,
+      "SalePrice": 197900
+    },
+    {
+      "GrLivArea": 2229,
+      "SalePrice": 104000
+    },
+    {
+      "GrLivArea": 480,
+      "SalePrice": 35311
+    },
+    {
+      "GrLivArea": 1718,
+      "SalePrice": 337500
+    },
+    {
+      "GrLivArea": 1702,
+      "SalePrice": 367294
+    },
+    {
+      "GrLivArea": 938,
+      "SalePrice": 130250
+    },
+    {
+      "GrLivArea": 1654,
+      "SalePrice": 230000
+    },
+    {
+      "GrLivArea": 4316,
+      "SalePrice": 755000
+    },
+    {
+      "GrLivArea": 2794,
+      "SalePrice": 403000
+    },
+    {
+      "GrLivArea": 928,
+      "SalePrice": 132000
+    },
+    {
+      "GrLivArea": 1732,
+      "SalePrice": 178000
+    },
+    {
+      "GrLivArea": 1694,
+      "SalePrice": 136500
+    },
+    {
+      "GrLivArea": 1056,
+      "SalePrice": 145000
+    },
+    {
+      "GrLivArea": 900,
+      "SalePrice": 123000
+    },
+    {
+      "GrLivArea": 2057,
+      "SalePrice": 250000
+    },
+    {
+      "GrLivArea": 1430,
+      "SalePrice": 187100
+    },
+    {
+      "GrLivArea": 768,
+      "SalePrice": 133900
+    },
+    {
+      "GrLivArea": 864,
+      "SalePrice": 67000
+    },
+    {
+      "GrLivArea": 1180,
+      "SalePrice": 137500
+    },
+    {
+      "GrLivArea": 1348,
+      "SalePrice": 155000
+    },
+    {
+      "GrLivArea": 2515,
+      "SalePrice": 200624
+    },
+    {
+      "GrLivArea": 2274,
+      "SalePrice": 154300
+    },
+    {
+      "GrLivArea": 1077,
+      "SalePrice": 91000
+    },
+    {
+      "GrLivArea": 1792,
+      "SalePrice": 136000
+    },
+    {
+      "GrLivArea": 1258,
+      "SalePrice": 108959
+    },
+    {
+      "GrLivArea": 1375,
+      "SalePrice": 140000
+    },
+    {
+      "GrLivArea": 605,
+      "SalePrice": 86000
+    },
+    {
+      "GrLivArea": 1144,
+      "SalePrice": 131400
+    },
+    {
+      "GrLivArea": 1234,
+      "SalePrice": 179900
+    },
+    {
+      "GrLivArea": 1056,
+      "SalePrice": 144000
+    },
+    {
+      "GrLivArea": 1646,
+      "SalePrice": 293077
+    },
+    {
+      "GrLivArea": 1526,
+      "SalePrice": 144500
+    },
+    {
+      "GrLivArea": 1216,
+      "SalePrice": 118500
+    },
+    {
+      "GrLivArea": 1800,
+      "SalePrice": 141000
+    },
+    {
+      "GrLivArea": 1950,
+      "SalePrice": 239000
+    },
+    {
+      "GrLivArea": 2574,
+      "SalePrice": 276000
+    },
+    {
+      "GrLivArea": 2868,
+      "SalePrice": 556581
+    },
+    {
+      "GrLivArea": 2403,
+      "SalePrice": 244400
+    },
+    {
+      "GrLivArea": 1944,
+      "SalePrice": 360000
+    },
+    {
+      "GrLivArea": 882,
+      "SalePrice": 103200
+    },
+    {
+      "GrLivArea": 1522,
+      "SalePrice": 102000
+    },
+    {
+      "GrLivArea": 1556,
+      "SalePrice": 151000
+    },
+    {
+      "GrLivArea": 2872,
+      "SalePrice": 285000
+    },
+    {
+      "GrLivArea": 1588,
+      "SalePrice": 134432
+    },
+    {
+      "GrLivArea": 1487,
+      "SalePrice": 113000
+    },
+    {
+      "GrLivArea": 1717,
+      "SalePrice": 187500
+    },
+    {
+      "GrLivArea": 1360,
+      "SalePrice": 125500
+    },
+    {
+      "GrLivArea": 1573,
+      "SalePrice": 177500
+    },
+    {
+      "GrLivArea": 1265,
+      "SalePrice": 179900
+    },
+    {
+      "GrLivArea": 1044,
+      "SalePrice": 55993
+    },
+    {
+      "GrLivArea": 954,
+      "SalePrice": 132500
+    },
+    {
+      "GrLivArea": 1389,
+      "SalePrice": 135000
+    },
+    {
+      "GrLivArea": 1989,
+      "SalePrice": 255000
+    },
+    {
+      "GrLivArea": 1710,
+      "SalePrice": 140000
+    },
+    {
+      "GrLivArea": 1689,
+      "SalePrice": 271000
+    },
+    {
+      "GrLivArea": 1500,
+      "SalePrice": 246578
+    },
+    {
+      "GrLivArea": 1368,
+      "SalePrice": 202500
+    },
+    {
+      "GrLivArea": 1092,
+      "SalePrice": 75000
+    },
+    {
+      "GrLivArea": 1365,
+      "SalePrice": 122500
+    },
+    {
+      "GrLivArea": 1073,
+      "SalePrice": 108480
+    },
+    {
+      "GrLivArea": 1308,
+      "SalePrice": 160000
+    },
+    {
+      "GrLivArea": 1118,
+      "SalePrice": 171000
+    },
+    {
+      "GrLivArea": 1306,
+      "SalePrice": 196000
+    },
+    {
+      "GrLivArea": 2008,
+      "SalePrice": 225000
+    },
+    {
+      "GrLivArea": 1247,
+      "SalePrice": 197000
+    },
+    {
+      "GrLivArea": 1317,
+      "SalePrice": 40000
+    },
+    {
+      "GrLivArea": 1739,
+      "SalePrice": 172500
+    },
+    {
+      "GrLivArea": 1343,
+      "SalePrice": 154900
+    },
+    {
+      "GrLivArea": 1533,
+      "SalePrice": 280000
+    },
+    {
+      "GrLivArea": 1446,
+      "SalePrice": 175000
+    },
+    {
+      "GrLivArea": 1344,
+      "SalePrice": 147000
+    },
+    {
+      "GrLivArea": 2630,
+      "SalePrice": 315000
+    },
+    {
+      "GrLivArea": 1337,
+      "SalePrice": 185000
+    },
+    {
+      "GrLivArea": 980,
+      "SalePrice": 135500
+    },
+    {
+      "GrLivArea": 2020,
+      "SalePrice": 239500
+    },
+    {
+      "GrLivArea": 1121,
+      "SalePrice": 139000
+    },
+    {
+      "GrLivArea": 1595,
+      "SalePrice": 140000
+    },
+    {
+      "GrLivArea": 892,
+      "SalePrice": 110000
+    },
+    {
+      "GrLivArea": 2243,
+      "SalePrice": 225000
+    },
+    {
+      "GrLivArea": 1285,
+      "SalePrice": 143500
+    },
+    {
+      "GrLivArea": 1225,
+      "SalePrice": 128950
+    },
+    {
+      "GrLivArea": 1471,
+      "SalePrice": 172500
+    },
+    {
+      "GrLivArea": 1363,
+      "SalePrice": 241500
+    },
+    {
+      "GrLivArea": 1566,
+      "SalePrice": 262500
+    },
+    {
+      "GrLivArea": 1402,
+      "SalePrice": 194201
+    },
+    {
+      "GrLivArea": 1144,
+      "SalePrice": 143000
+    },
+    {
+      "GrLivArea": 1352,
+      "SalePrice": 130000
+    },
+    {
+      "GrLivArea": 1734,
+      "SalePrice": 126000
+    },
+    {
+      "GrLivArea": 894,
+      "SalePrice": 142500
+    },
+    {
+      "GrLivArea": 1324,
+      "SalePrice": 254000
+    },
+    {
+      "GrLivArea": 1647,
+      "SalePrice": 217500
+    },
+    {
+      "GrLivArea": 1131,
+      "SalePrice": 66500
+    },
+    {
+      "GrLivArea": 1466,
+      "SalePrice": 201000
+    },
+    {
+      "GrLivArea": 1215,
+      "SalePrice": 155000
+    },
+    {
+      "GrLivArea": 1128,
+      "SalePrice": 68400
+    },
+    {
+      "GrLivArea": 968,
+      "SalePrice": 64500
+    },
+    {
+      "GrLivArea": 1632,
+      "SalePrice": 173000
+    },
+    {
+      "GrLivArea": 1178,
+      "SalePrice": 102776
+    },
+    {
+      "GrLivArea": 930,
+      "SalePrice": 84900
+    },
+    {
+      "GrLivArea": 1501,
+      "SalePrice": 165600
+    },
+    {
+      "GrLivArea": 864,
+      "SalePrice": 120000
+    },
+    {
+      "GrLivArea": 1229,
+      "SalePrice": 135000
+    },
+    {
+      "GrLivArea": 1915,
+      "SalePrice": 220000
+    },
+    {
+      "GrLivArea": 1396,
+      "SalePrice": 153575
+    },
+    {
+      "GrLivArea": 1208,
+      "SalePrice": 195400
+    },
+    {
+      "GrLivArea": 996,
+      "SalePrice": 147000
+    },
+    {
+      "GrLivArea": 2062,
+      "SalePrice": 277000
+    },
+    {
+      "GrLivArea": 923,
+      "SalePrice": 143000
+    },
+    {
+      "GrLivArea": 720,
+      "SalePrice": 105900
+    },
+    {
+      "GrLivArea": 2978,
+      "SalePrice": 242000
+    },
+    {
+      "GrLivArea": 1744,
+      "SalePrice": 194500
+    },
+    {
+      "GrLivArea": 2945,
+      "SalePrice": 438780
+    },
+    {
+      "GrLivArea": 1876,
+      "SalePrice": 185000
+    },
+    {
+      "GrLivArea": 1347,
+      "SalePrice": 107500
+    },
+    {
+      "GrLivArea": 1431,
+      "SalePrice": 165000
+    },
+    {
+      "GrLivArea": 1137,
+      "SalePrice": 176000
+    },
+    {
+      "GrLivArea": 1060,
+      "SalePrice": 129900
+    },
+    {
+      "GrLivArea": 789,
+      "SalePrice": 115000
+    },
+    {
+      "GrLivArea": 1838,
+      "SalePrice": 192140
+    },
+    {
+      "GrLivArea": 1472,
+      "SalePrice": 160000
+    },
+    {
+      "GrLivArea": 1505,
+      "SalePrice": 145000
+    },
+    {
+      "GrLivArea": 691,
+      "SalePrice": 86000
+    },
+    {
+      "GrLivArea": 1159,
+      "SalePrice": 158000
+    },
+    {
+      "GrLivArea": 1069,
+      "SalePrice": 127500
+    },
+    {
+      "GrLivArea": 1224,
+      "SalePrice": 115000
+    },
+    {
+      "GrLivArea": 1302,
+      "SalePrice": 119500
+    },
+    {
+      "GrLivArea": 1603,
+      "SalePrice": 175900
+    },
+    {
+      "GrLivArea": 2090,
+      "SalePrice": 240000
+    },
+    {
+      "GrLivArea": 1973,
+      "SalePrice": 395000
+    },
+    {
+      "GrLivArea": 1208,
+      "SalePrice": 165000
+    },
+    {
+      "GrLivArea": 894,
+      "SalePrice": 128200
+    },
+    {
+      "GrLivArea": 1644,
+      "SalePrice": 275000
+    },
+    {
+      "GrLivArea": 1726,
+      "SalePrice": 311872
+    },
+    {
+      "GrLivArea": 1933,
+      "SalePrice": 214000
+    },
+    {
+      "GrLivArea": 1337,
+      "SalePrice": 153500
+    },
+    {
+      "GrLivArea": 848,
+      "SalePrice": 144000
+    },
+    {
+      "GrLivArea": 1005,
+      "SalePrice": 115000
+    },
+    {
+      "GrLivArea": 1430,
+      "SalePrice": 180000
+    },
+    {
+      "GrLivArea": 2076,
+      "SalePrice": 465000
+    },
+    {
+      "GrLivArea": 1337,
+      "SalePrice": 180000
+    },
+    {
+      "GrLivArea": 1971,
+      "SalePrice": 253000
+    },
+    {
+      "GrLivArea": 1112,
+      "SalePrice": 85000
+    },
+    {
+      "GrLivArea": 1224,
+      "SalePrice": 101800
+    },
+    {
+      "GrLivArea": 1002,
+      "SalePrice": 148500
+    },
+    {
+      "GrLivArea": 1709,
+      "SalePrice": 137500
+    },
+    {
+      "GrLivArea": 1869,
+      "SalePrice": 318061
+    },
+    {
+      "GrLivArea": 1473,
+      "SalePrice": 143000
+    },
+    {
+      "GrLivArea": 1558,
+      "SalePrice": 140000
+    },
+    {
+      "GrLivArea": 1776,
+      "SalePrice": 192500
+    },
+    {
+      "GrLivArea": 630,
+      "SalePrice": 92000
+    },
+    {
+      "GrLivArea": 1576,
+      "SalePrice": 197000
+    },
+    {
+      "GrLivArea": 792,
+      "SalePrice": 109500
+    },
+    {
+      "GrLivArea": 1718,
+      "SalePrice": 297000
+    },
+    {
+      "GrLivArea": 1489,
+      "SalePrice": 185750
+    },
+    {
+      "GrLivArea": 1840,
+      "SalePrice": 230000
+    },
+    {
+      "GrLivArea": 1131,
+      "SalePrice": 89471
+    },
+    {
+      "GrLivArea": 1530,
+      "SalePrice": 260000
+    },
+    {
+      "GrLivArea": 1456,
+      "SalePrice": 189000
+    },
+    {
+      "GrLivArea": 1510,
+      "SalePrice": 108000
+    },
+    {
+      "GrLivArea": 864,
+      "SalePrice": 124500
+    },
+    {
+      "GrLivArea": 1314,
+      "SalePrice": 145000
+    },
+    {
+      "GrLivArea": 1571,
+      "SalePrice": 178000
+    },
+    {
+      "GrLivArea": 796,
+      "SalePrice": 85000
+    },
+    {
+      "GrLivArea": 1768,
+      "SalePrice": 175000
+    },
+    {
+      "GrLivArea": 1691,
+      "SalePrice": 127000
+    },
+    {
+      "GrLivArea": 894,
+      "SalePrice": 149900
+    },
+    {
+      "GrLivArea": 1560,
+      "SalePrice": 174000
+    },
+    {
+      "GrLivArea": 1154,
+      "SalePrice": 125500
+    }
+  ]
+}

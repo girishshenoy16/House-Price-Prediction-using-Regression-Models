@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header class="dashboard-header" role="banner">
+        <h1>House Price Prediction</h1>
+        <p class="subtitle">Estimate a home's value in seconds using a validated Ridge Regression model.</p>
+        <p class="trust-line">Ridge Regression &middot; 5-Fold CV &middot; Browser-Based</p>
+    </header>
+
+    <main class="dashboard" role="main">
+        <section id="valuation" class="section" aria-label="Property Valuation">
+            <h2>Property Valuation</h2>
+            <div class="valuation-layout">
+                <div class="input-panel" role="form" aria-label="Property Features">
+                    <div class="input-section-label">Property &amp; Area</div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="overallQual">Overall Quality (1&ndash;10)</label>
+                            <input type="range" id="overallQual" min="1" max="10" value="6" aria-valuemin="1" aria-valuemax="10" aria-valuenow="6" aria-describedby="err-overallQual">
+                            <span id="overallQualVal" aria-live="polite">6</span>
+                            <span class="field-error" id="err-overallQual" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="totalBsmtSF">Basement Area (sqft)</label>
+                            <input type="number" id="totalBsmtSF" value="1000" min="0" step="1" aria-describedby="err-totalBsmtSF">
+                            <span class="field-error" id="err-totalBsmtSF" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="firstFlrSF">1st Floor Area (sqft)</label>
+                            <input type="number" id="firstFlrSF" value="1100" min="0" step="1" aria-describedby="err-firstFlrSF">
+                            <span class="field-error" id="err-firstFlrSF" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="secondFlrSF">2nd Floor Area (sqft)</label>
+                            <input type="number" id="secondFlrSF" value="0" min="0" step="1" aria-describedby="err-secondFlrSF">
+                            <span class="field-error" id="err-secondFlrSF" role="alert" aria-live="assertive"></span>
+                        </div>
+                    </div>
+                    <div class="input-section-label">Bathrooms</div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="fullBath">Full Bathrooms</label>
+                            <input type="number" id="fullBath" value="2" min="0" max="5" step="1" aria-describedby="err-fullBath">
+                            <span class="field-error" id="err-fullBath" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="halfBath">Half Bathrooms</label>
+                            <input type="number" id="halfBath" value="1" min="0" max="3" step="1" aria-describedby="err-halfBath">
+                            <span class="field-error" id="err-halfBath" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="bsmtFullBath">Basement Full Baths</label>
+                            <input type="number" id="bsmtFullBath" value="0" min="0" max="3" step="1" aria-describedby="err-bsmtFullBath">
+                            <span class="field-error" id="err-bsmtFullBath" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="bsmtHalfBath">Basement Half Baths</label>
+                            <input type="number" id="bsmtHalfBath" value="0" min="0" max="2" step="1" aria-describedby="err-bsmtHalfBath">
+                            <span class="field-error" id="err-bsmtHalfBath" role="alert" aria-live="assertive"></span>
+                        </div>
+                    </div>
+                    <div class="input-section-label">Age &amp; Year</div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="yearBuilt">Year Built</label>
+                            <input type="number" id="yearBuilt" value="2000" min="1900" max="2010" step="1" aria-describedby="err-yearBuilt">
+                            <span class="field-error" id="err-yearBuilt" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="yearRemodAdd">Year Remodeled</label>
+                            <input type="number" id="yearRemodAdd" value="2000" min="1900" max="2010" step="1" aria-describedby="err-yearRemodAdd">
+                            <span class="field-error" id="err-yearRemodAdd" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="yrSold">Year Sold</label>
+                            <input type="number" id="yrSold" value="2008" min="2006" max="2010" step="1" aria-describedby="err-yrSold">
+                            <span class="field-error" id="err-yrSold" role="alert" aria-live="assertive"></span>
+                        </div>
+                    </div>
+                    <div class="input-section-label">Outdoor Features</div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="openPorchSF">Open Porch (sqft)</label>
+                            <input type="number" id="openPorchSF" value="30" min="0" step="1" aria-describedby="err-openPorchSF">
+                            <span class="field-error" id="err-openPorchSF" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="enclosedPorch">Enclosed Porch (sqft)</label>
+                            <input type="number" id="enclosedPorch" value="0" min="0" step="1" aria-describedby="err-enclosedPorch">
+                            <span class="field-error" id="err-enclosedPorch" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="ssnPorch">3-Season Porch (sqft)</label>
+                            <input type="number" id="ssnPorch" value="0" min="0" step="1" aria-describedby="err-ssnPorch">
+                            <span class="field-error" id="err-ssnPorch" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="screenPorch">Screen Porch (sqft)</label>
+                            <input type="number" id="screenPorch" value="0" min="0" step="1" aria-describedby="err-screenPorch">
+                            <span class="field-error" id="err-screenPorch" role="alert" aria-live="assertive"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="woodDeckSF">Wood Deck (sqft)</label>
+                            <input type="number" id="woodDeckSF" value="0" min="0" step="1" aria-describedby="err-woodDeckSF">
+                            <span class="field-error" id="err-woodDeckSF" role="alert" aria-live="assertive"></span>
+                        </div>
+                    </div>
+                    <div class="input-section-label">Classification</div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="msZoning">Zoning</label>
+                            <select id="msZoning">
+                                <option value="RL" selected>RL &mdash; Residential Low</option>
+                                <option value="RM">RM &mdash; Residential Medium</option>
+                                <option value="FV">FV &mdash; Floating Village</option>
+                                <option value="RH">RH &mdash; Residential High</option>
+                                <option value="C (all)">C &mdash; Commercial</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="neighborhood">Neighborhood</label>
+                            <select id="neighborhood">
+                                <option value="NAmes" selected>North Ames</option>
+                                <option value="CollgCr">College Creek</option>
+                                <option value="Gilbert">Gilbert</option>
+                                <option value="Somerst">Somerset</option>
+                                <option value="NWAmes">Northwest Ames</option>
+                                <option value="Edwards">Edwards</option>
+                                <option value="BrkSide">Brookside</option>
+                                <option value="OldTown">Old Town</option>
+                                <option value="Sawyer">Sawyer</option>
+                                <option value="SawyerW">Sawyer West</option>
+                                <option value="NridgHt">Northridge Heights</option>
+                                <option value="NoRidge">Northridge</option>
+                                <option value="StoneBr">Stone Brook</option>
+                                <option value="Timber">Timberland</option>
+                                <option value="Crawfor">Crawford</option>
+                                <option value="Mitchel">Mitchell</option>
+                                <option value="IDOTRR">Iowa DOT &amp; Rail Road</option>
+                                <option value="MeadowV">Meadow Village</option>
+                                <option value="ClearCr">Clear Creek</option>
+                                <option value="Blmngtn">Bloomington Heights</option>
+                                <option value="BrDale">Briardale</option>
+                                <option value="Veenker">Veenker</option>
+                                <option value="SWISU">S&amp;W Iowa State Univ.</option>
+                                <option value="Blueste">Bluestem</option>
+                                <option value="NPkVill">Northpark Villa</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="bldgType">Building Type</label>
+                            <select id="bldgType">
+                                <option value="1Fam" selected>1-Family</option>
+                                <option value="2fmCon">2-Family Conv</option>
+                                <option value="Duplex">Duplex</option>
+                                <option value="TwnhsE">Townhouse End</option>
+                                <option value="Twnhs">Townhouse Inside</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="houseStyle">House Style</label>
+                            <select id="houseStyle">
+                                <option value="1Story" selected>1 Story</option>
+                                <option value="2Story">2 Story</option>
+                                <option value="1.5Fin">1.5 Story Finished</option>
+                                <option value="1.5Unf">1.5 Story Unfinished</option>
+                                <option value="SFoyer">Split Foyer</option>
+                                <option value="SLvl">Split Level</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="exterQual">Exterior Quality</label>
+                            <select id="exterQual">
+                                <option value="TA" selected>TA &mdash; Average</option>
+                                <option value="Gd">Gd &mdash; Good</option>
+                                <option value="Ex">Ex &mdash; Excellent</option>
+                                <option value="Fa">Fa &mdash; Fair</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="kitchenQual">Kitchen Quality</label>
+                            <select id="kitchenQual">
+                                <option value="TA" selected>TA &mdash; Average</option>
+                                <option value="Gd">Gd &mdash; Good</option>
+                                <option value="Ex">Ex &mdash; Excellent</option>
+                                <option value="Fa">Fa &mdash; Fair</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="foundation">Foundation</label>
+                            <select id="foundation">
+                                <option value="PConc" selected>Poured Concrete</option>
+                                <option value="CBlock">Cinder Block</option>
+                                <option value="BrkTil">Brick &amp; Tile</option>
+                                <option value="Slab">Slab</option>
+                                <option value="Stone">Stone</option>
+                                <option value="Wood">Wood</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="garageType">Garage</label>
+                            <select id="garageType">
+                                <option value="Attchd" selected>Attached</option>
+                                <option value="Detchd">Detached</option>
+                                <option value="BuiltIn">Built-In</option>
+                                <option value="Basment">Basement</option>
+                                <option value="CarPort">Car Port</option>
+                                <option value="2Types">2+ Types</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="btn-row">
+                        <button id="predictBtn" class="predict-btn" type="button" aria-label="Predict price">
+                            <span class="btn-label">Predict Price</span>
+                            <span class="btn-loading" aria-hidden="true">Predicting&hellip;</span>
+                        </button>
+                        <button id="resetBtn" class="reset-btn" type="button" aria-label="Reset to example values">Reset Example</button>
+                    </div>
+                </div>
+                <div class="result-panel" role="region" aria-label="Prediction Result">
+                    <div class="kpi-card predicted-price">
+                        <span class="kpi-label">Estimated Sale Price</span>
+                        <span class="kpi-value" id="predictedPrice" aria-live="polite" aria-atomic="true">$0</span>
+                        <div class="kpi-context">
+                            <span class="kpi-context-item">Model: <strong>Ridge Regression</strong></span>
+                            <span class="kpi-context-item">CV RMSE: <strong>$30,356</strong> <span class="kpi-note">(validation metric)</span></span>
+                        </div>
+                    </div>
+                    <div id="extrapolationWarning" class="extrapolation-warning" style="display:none;" role="alert" aria-live="assertive">
+                        <strong>Model Extrapolation</strong> &mdash; This estimate is outside the observed training-price range and should be interpreted with additional caution.
+                    </div>
+                    <div id="predictionError" class="prediction-error" style="display:none;" role="alert" aria-live="assertive">
+                        <strong>Unable to generate prediction</strong> &mdash; Please check the highlighted inputs and try again.
+                    </div>
+                    <div id="successToast" class="success-toast" style="display:none;" aria-live="polite">Prediction updated</div>
+                    <div id="propertySummary" class="property-summary">
+                        <span class="summary-text" id="summaryText"></span>
+                    </div>
+                    <div class="about-panel">
+                        <h4>About This Prediction</h4>
+                        <p>This estimate is generated by the Ridge Regression model selected using 5-fold cross-validation. Inputs not exposed in the dashboard follow the same preprocessing and imputation strategy used during model training.</p>
+                    </div>
+                    <div id="valuationRecommendation" class="valuation-card" style="display:none;" role="region" aria-label="Valuation Recommendation">
+                        <h4 class="valuation-heading">Valuation Recommendation</h4>
+                        <p id="valuationMessage" class="valuation-message"></p>
+                    </div>
+                    <details class="feature-disclosure">
+                        <summary class="feature-disclosure-header">Model Features <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+                        <div class="feature-summary">
+                            <div class="feature-row"><span>TotalSF</span><span id="featTotalSF">0</span></div>
+                            <div class="feature-row"><span>TotalBaths</span><span id="featTotalBaths">0</span></div>
+                            <div class="feature-row"><span>AgeAtSale</span><span id="featAgeAtSale">0</span></div>
+                            <div class="feature-row"><span>RemodAgeAtSale</span><span id="featRemodAge">0</span></div>
+                            <div class="feature-row"><span>QualAreaIndex</span><span id="featQualArea">0</span></div>
+                            <div class="feature-row"><span>TotalPorchSF</span><span id="featPorch">0</span></div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="performance" class="section" aria-label="Model Performance">
+            <h2>Model Performance</h2>
+            <div class="perf-layout">
+                <div class="table-panel">
+                    <h3>5-Fold Cross-Validation Results</h3>
+                    <p class="table-note"><strong>Model selected using 5-fold CV. Holdout results are shown as an unseen benchmark.</strong></p>
+                    <div class="table-scroll">
+                        <table id="modelTable" class="model-table" aria-label="Model comparison">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Model</th>
+                                    <th scope="col">CV RMSE</th>
+                                    <th scope="col">CV MAE</th>
+                                    <th scope="col">CV R&sup2;</th>
+                                    <th scope="col">Holdout RMSE</th>
+                                    <th scope="col">Holdout MAE</th>
+                                    <th scope="col">Holdout R&sup2;</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="chart-panel">
+                    <h3>Actual vs Predicted</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="scatterChart" aria-label="Actual vs predicted scatter chart" role="img"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="insights" class="section" aria-label="Housing Insights">
+            <h2>Housing Insights</h2>
+            <div class="insights-layout">
+                <div class="chart-panel">
+                    <h3>Top Ridge Feature Effects</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="featureChart" aria-label="Feature effects bar chart" role="img"></canvas>
+                    </div>
+                </div>
+                <div class="chart-panel">
+                    <h3>Price vs Living Area</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="priceAreaChart" aria-label="Price vs living area scatter chart" role="img"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="dashboard-footer" role="contentinfo">
+        <p>House Price Prediction &mdash; Ames Housing Dataset &mdash; Ridge Regression Model | Built By Girish Shenoy</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
