@@ -31,7 +31,7 @@ It achieves a **CV RMSE of $30,356** and **R² of 0.835** on the held-out test s
 
 <div align="center">
 
-![House Price Prediction Dashboard](outputs/plots/live-dashboard.png)
+![House Price Prediction Dashboard](outputs/live-dashboard.png)
 
 ML-powered house price prediction with a **Power BI-inspired** 3-section dashboard. 100% static deployment on GitHub Pages. Zero data leaves the browser.
 
