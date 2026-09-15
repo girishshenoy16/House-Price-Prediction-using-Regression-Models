@@ -63,6 +63,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         modelData = await resp.json();
         document.getElementById('predictBtn').addEventListener('click', onPredictClick);
         document.getElementById('resetBtn').addEventListener('click', resetToDefaults);
+        document.getElementById('clearBtn').addEventListener('click', clearInputs);
+        document.querySelectorAll('.scenario-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                loadScenario(this.dataset.scenario);
+            });
+        });
         setupValidation();
         predict();
         renderModelTable();
@@ -161,6 +167,30 @@ function resetToDefaults() {
         if (el) el.value = val;
     });
     document.getElementById('overallQualVal').textContent = DEFAULT_VALUES.overallQual;
+    clearValidationState();
+    clearPredictionState();
+    clearActiveScenario();
+    predict();
+}
+
+function clearInputs() {
+    const ids = Object.keys(DEFAULT_VALUES);
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (el.tagName === 'SELECT') {
+            el.selectedIndex = 0;
+        } else {
+            el.value = '';
+        }
+    });
+    document.getElementById('overallQualVal').textContent = '5';
+    clearValidationState();
+    clearPredictionState();
+    clearActiveScenario();
+}
+
+function clearValidationState() {
     Object.keys(VALIDATION_RULES).forEach(id => {
         const errEl = document.getElementById('err-' + id);
         if (errEl) errEl.textContent = '';
@@ -169,8 +199,120 @@ function resetToDefaults() {
     });
     const errorEl = document.getElementById('predictionError');
     if (errorEl) errorEl.style.display = 'none';
-    predict();
+    const toast = document.getElementById('successToast');
+    if (toast) toast.style.display = 'none';
 }
+
+function clearPredictionState() {
+    const priceEl = document.getElementById('predictedPrice');
+    if (priceEl) priceEl.textContent = '$0';
+    const summaryEl = document.getElementById('summaryText');
+    if (summaryEl) summaryEl.textContent = '';
+    const valEl = document.getElementById('valuationRecommendation');
+    if (valEl) valEl.style.display = 'none';
+    const warnEl = document.getElementById('extrapolationWarning');
+    if (warnEl) warnEl.style.display = 'none';
+    ['featTotalSF','featTotalBaths','featAgeAtSale','featRemodAge','featQualArea','featPorch'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = '0';
+    });
+}
+
+function clearActiveScenario() {
+    document.querySelectorAll('.scenario-btn').forEach(btn => btn.classList.remove('active'));
+    const toast = document.getElementById('scenarioToast');
+    if (toast) toast.style.display = 'none';
+}
+
+function showToast(msg, duration) {
+    const toast = document.getElementById('scenarioToast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, duration || 1800);
+}
+
+const SCENARIOS = {
+    typical: {
+        overallQual: 6, totalBsmtSF: 800, firstFlrSF: 850, secondFlrSF: 800,
+        fullBath: 2, halfBath: 1, bsmtFullBath: 1, bsmtHalfBath: 0,
+        yearBuilt: 1990, yearRemodAdd: 1995, yrSold: 2008,
+        openPorchSF: 30, enclosedPorch: 0, ssnPorch: 0, screenPorch: 0, woodDeckSF: 80,
+        overallCond: 5, moSold: 6,
+        msZoning: 'RL', lotShape: 'Reg', landContour: 'Lvl', lotConfig: 'Inside',
+        neighborhood: 'NAmes', condition1: 'Norm', bldgType: '1Fam', houseStyle: '1Story',
+        overallQualCat: '6', overallCondCat: '5',
+        roofStyle: 'Gable', exterior1st: 'VinylSd', exterior2nd: 'VinylSd',
+        masVnrType: 'None', foundation: 'CBlock', heating: 'GasA', centralAir: 'Y',
+        electrical: 'SBrkr', garageType: 'Attchd', garageFinish: 'RFn',
+        saleType: 'WD', saleCondition: 'Normal'
+    },
+    premium: {
+        overallQual: 9, totalBsmtSF: 1400, firstFlrSF: 1500, secondFlrSF: 1200,
+        fullBath: 3, halfBath: 1, bsmtFullBath: 1, bsmtHalfBath: 0,
+        yearBuilt: 2005, yearRemodAdd: 2008, yrSold: 2008,
+        openPorchSF: 80, enclosedPorch: 0, ssnPorch: 0, screenPorch: 0, woodDeckSF: 200,
+        overallCond: 8, moSold: 6,
+        msZoning: 'RL', lotShape: 'Reg', landContour: 'Lvl', lotConfig: 'Corner',
+        neighborhood: 'NoRidge', condition1: 'Norm', bldgType: '1Fam', houseStyle: '2Story',
+        overallQualCat: '9', overallCondCat: '8',
+        roofStyle: 'Hip', exterior1st: 'HdBoard', exterior2nd: 'HdBoard',
+        masVnrType: 'BrkFace', foundation: 'PConc', heating: 'GasA', centralAir: 'Y',
+        electrical: 'SBrkr', garageType: 'Attchd', garageFinish: 'Fin',
+        saleType: 'WD', saleCondition: 'Normal'
+    },
+    budget: {
+        overallQual: 4, totalBsmtSF: 600, firstFlrSF: 700, secondFlrSF: 0,
+        fullBath: 1, halfBath: 0, bsmtFullBath: 0, bsmtHalfBath: 0,
+        yearBuilt: 1955, yearRemodAdd: 1955, yrSold: 2008,
+        openPorchSF: 0, enclosedPorch: 40, ssnPorch: 0, screenPorch: 0, woodDeckSF: 0,
+        overallCond: 4, moSold: 3,
+        msZoning: 'RM', lotShape: 'Reg', landContour: 'Lvl', lotConfig: 'Inside',
+        neighborhood: 'IDOTRR', condition1: 'Norm', bldgType: '1Fam', houseStyle: '1Story',
+        overallQualCat: '4', overallCondCat: '4',
+        roofStyle: 'Gable', exterior1st: 'AsbShng', exterior2nd: 'AsbShng',
+        masVnrType: 'None', foundation: 'CBlock', heating: 'GasA', centralAir: 'N',
+        electrical: 'SBrkr', garageType: 'Detchd', garageFinish: 'Unf',
+        saleType: 'WD', saleCondition: 'Normal'
+    },
+    large: {
+        overallQual: 7, totalBsmtSF: 1200, firstFlrSF: 1600, secondFlrSF: 1500,
+        fullBath: 3, halfBath: 1, bsmtFullBath: 1, bsmtHalfBath: 1,
+        yearBuilt: 1995, yearRemodAdd: 2000, yrSold: 2008,
+        openPorchSF: 60, enclosedPorch: 0, ssnPorch: 0, screenPorch: 0, woodDeckSF: 150,
+        overallCond: 6, moSold: 7,
+        msZoning: 'RL', lotShape: 'IR1', landContour: 'Lvl', lotConfig: 'Inside',
+        neighborhood: 'Somerst', condition1: 'Norm', bldgType: '1Fam', houseStyle: '2Story',
+        overallQualCat: '7', overallCondCat: '6',
+        roofStyle: 'Gable', exterior1st: 'VinylSd', exterior2nd: 'VinylSd',
+        masVnrType: 'None', foundation: 'PConc', heating: 'GasA', centralAir: 'Y',
+        electrical: 'SBrkr', garageType: 'Attchd', garageFinish: 'RFn',
+        saleType: 'WD', saleCondition: 'Normal'
+    }
+};
+
+function loadScenario(name) {
+    const s = SCENARIOS[name];
+    if (!s) return;
+    Object.entries(s).forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el) el.value = val;
+    });
+    const qualSlider = document.getElementById('overallQual');
+    if (qualSlider) qualSlider.value = s.overallQual;
+    document.getElementById('overallQualVal').textContent = s.overallQual;
+    clearValidationState();
+    clearPredictionState();
+    document.querySelectorAll('.scenario-btn').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.querySelector('.scenario-btn[data-scenario="' + name + '"]');
+    if (activeBtn) activeBtn.classList.add('active');
+    showToast('Scenario loaded');
+}
+
+document.getElementById('overallQual').addEventListener('input', function() {
+    document.getElementById('overallQualVal').textContent = this.value;
+    this.setAttribute('aria-valuenow', this.value);
+});
 
 function engineerFeatures(inputs) {
     const totalSF = inputs.firstFlrSF + inputs.secondFlrSF + inputs.totalBsmtSF;

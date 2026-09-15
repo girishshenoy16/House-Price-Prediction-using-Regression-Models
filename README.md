@@ -21,6 +21,8 @@
 **House Price Prediction using Regression Models** is a portfolio-grade ML platform that predicts residential property sale prices using supervised regression on the Ames Housing Dataset (1,460 records, 79 predictors).
 It achieves a **CV RMSE of $30,356** and **R² of 0.835** on the held-out test set (10/10 tests passing) while operating as a **serverless GitHub Pages deployment** with **zero-cost static hosting** and **100% in-browser inference**.
 
+The dashboard features **4 preset demo scenarios** (Typical Home, Premium Home, Budget/Older, Large Home) for quick exploration, **Clear Inputs** for form reset, and **Reset Example** for deterministic example values.
+
 [**Live Dashboard**](https://girishshenoy16.github.io/House-Price-Prediction-using-Regression-Models/) | [**Project Report**](reports/detailed_project_report.md) | [**Executive Summary**](reports/executive_summary.md)
 
 </div>
@@ -101,6 +103,8 @@ This system predicts residential property sale prices from structural and catego
 | Section              | Features                                                                                                                              |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | **Predict Price**    | Interactive input form, inline validation, loading state, dynamic property summary, engineered feature display, extrapolation warning, valuation recommendation |
+| **Try a Scenario**   | 4 preset scenarios (Typical Home, Premium Home, Budget/Older, Large Home) with "Scenario loaded" feedback                              |
+| **Actions**          | Predict Price (primary), Clear Inputs (secondary), Reset Example (secondary)                                                          |
 | **Model Comparison** | 5-model performance table with selected model badge, CV and holdout metrics                                                           |
 | **Visualizations**   | Actual vs Predicted scatter (292 Ridge holdout points), Price vs Living Area with trend line, Top Ridge Feature Effects bar chart     |
 

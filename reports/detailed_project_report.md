@@ -122,6 +122,26 @@ A 3-section Power BI-style executive dashboard deployed via GitHub Pages:
 2. **Model Performance** — Benchmark comparison table and Actual vs Predicted scatter plot
 3. **Housing Insights** — Feature importance chart and price metrics visualization
 
+### Demo Scenarios
+
+Four preset scenarios enable quick demonstration of model behavior across different property profiles:
+
+| Scenario | Purpose | Key Characteristics |
+|----------|---------|---------------------|
+| **Typical Home** | Mid-range family property | Overall Quality 6, moderate area, 2 full baths, built 1990 |
+| **Premium Home** | Higher quality & larger space | Overall Quality 9, large area, 3 full baths, built 2005 |
+| **Budget / Older** | Lower-value older profile | Overall Quality 4, smaller area, 1 full bath, built 1955 |
+| **Large Home** | Size sensitivity example | Overall Quality 7, 4,300 sqft total, built 1995 |
+
+Scenarios populate all exposed inputs. Users click **Predict Price** to generate the estimate. Scenario selection clears stale predictions and validation state.
+
+### Clear Inputs vs Reset Example
+
+| Action | Behavior |
+|--------|----------|
+| **Clear Inputs** | Clears all form inputs to empty state, resets validation/errors/prediction to neutral |
+| **Reset Example** | Restores the deterministic realistic example property and triggers a prediction |
+
 ### Valuation Recommendation
 
 A compact decision-support component that provides context about the prediction based on where it falls within the observed training-price range ($34,900–$755,000). The recommendation is generated deterministically from the browser prediction and training metadata — no external data or backend required.

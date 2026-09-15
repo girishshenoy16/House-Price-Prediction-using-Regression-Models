@@ -219,11 +219,22 @@
                             </select>
                         </div>
                     </div>
+                    <div class="scenario-section">
+                        <span class="scenario-label">Try a Scenario</span>
+                        <div class="scenario-row">
+                            <button class="scenario-btn" data-scenario="typical" type="button">Typical Home</button>
+                            <button class="scenario-btn" data-scenario="premium" type="button">Premium Home</button>
+                            <button class="scenario-btn" data-scenario="budget" type="button">Budget / Older</button>
+                            <button class="scenario-btn" data-scenario="large" type="button">Large Home</button>
+                        </div>
+                        <div id="scenarioToast" class="scenario-toast" style="display:none;" aria-live="polite">Scenario loaded</div>
+                    </div>
                     <div class="btn-row">
                         <button id="predictBtn" class="predict-btn" type="button" aria-label="Predict price">
                             <span class="btn-label">Predict Price</span>
                             <span class="btn-loading" aria-hidden="true">Predicting&hellip;</span>
                         </button>
+                        <button id="clearBtn" class="clear-btn" type="button" aria-label="Clear all inputs">Clear Inputs</button>
                         <button id="resetBtn" class="reset-btn" type="button" aria-label="Reset to example values">Reset Example</button>
                     </div>
                 </div>

@@ -233,6 +233,69 @@ body {
     outline-offset: 2px;
 }
 
+.clear-btn {
+    padding: 12px 18px;
+    background: var(--bg-input);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    white-space: nowrap;
+    min-height: 46px;
+}
+.clear-btn:hover { background: var(--border); border-color: #CBD5E1; }
+.clear-btn:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+.scenario-section {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+.scenario-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.scenario-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.scenario-btn {
+    padding: 7px 12px;
+    background: #FFFFFF;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+.scenario-btn:hover { background: #EFF6FF; border-color: #BFDBFE; color: var(--accent-blue); }
+.scenario-btn:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+.scenario-btn.active { background: #EFF6FF; border-color: var(--accent-blue); color: var(--accent-blue); }
+.scenario-toast {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: #16A34A;
+    font-weight: 500;
+}
+
 .kpi-card {
     text-align: center;
     padding: 28px 16px;
@@ -527,11 +590,13 @@ body {
     .input-section-label { margin: 14px 0 6px; }
 
     .btn-row { flex-direction: column; }
-    .predict-btn, .reset-btn {
+    .predict-btn, .reset-btn, .clear-btn {
         width: 100%;
         min-height: 48px;
         font-size: 1rem;
     }
+    .scenario-row { gap: 6px; }
+    .scenario-btn { flex: 1 1 calc(50% - 6px); min-height: 38px; }
 
     .kpi-card { padding: 22px 14px; }
     .kpi-value { font-size: 1.9rem; }
@@ -559,7 +624,7 @@ body {
         min-height: 48px;
         font-size: 16px;
     }
-    .predict-btn, .reset-btn { min-height: 50px; }
+    .predict-btn, .reset-btn, .clear-btn { min-height: 50px; }
     .kpi-value { font-size: 1.7rem; }
     .chart-wrapper canvas { max-height: 240px !important; }
 }

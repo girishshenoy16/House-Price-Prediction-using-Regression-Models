@@ -45,7 +45,7 @@ Browser-side JavaScript inference
 - **Platform:** GitHub Pages (`/docs` directory)
 - **Inference:** Client-side JavaScript, no backend required
 - **Model artifact:** `docs/model_export.json` (single authoritative export)
-- **Dashboard sections:** Property Valuation (with Valuation Recommendation), Model Performance, Housing Insights
+- **Dashboard sections:** Property Valuation (with Valuation Recommendation), Try a Scenario (4 presets), Model Performance, Housing Insights
 
 ## Technical Highlights
 
@@ -65,7 +65,7 @@ Browser-side JavaScript inference
 |------|---------|
 | `main.py` | Single-command pipeline orchestrator |
 | `docs/index.html` | Dashboard UI |
-| `docs/app.js` | Client-side inference engine + valuation recommendation |
+| `docs/app.js` | Client-side inference engine + valuation recommendation + demo scenarios |
 | `docs/model_export.json` | Model artifact for browser |
 | `tests/test_pipeline.py` | Unit tests (10 tests) |
 | `tests/test_js_parity.py` | 5-case Python ↔ JS parity suite |
